@@ -42,11 +42,11 @@ public class Main {
         System.out.println( lista.recuperar(4));
         System.out.println( lista.recuperar(1));
         System.out.println( lista.recuperar(2));
-   //     lista.mostrarLista();
+      lista.mostrarLista();
 
     }
     public static void main(String[] args){
-        //testListaSimple();
+        testListaSimple();
         //testListadoble();
     }
 }
