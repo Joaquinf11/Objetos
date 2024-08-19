@@ -25,7 +25,7 @@ public class Lista {
         if (this.estaVacia()) {
             this.inicio = nuevoNodo;
             this.cantidadElementos++;
-            return;
+
         } else {
             Nodo nodoActual = this.inicio;
             while (nodoActual.valorIs(valor) || nodoActual.hasSiguiente()) {
@@ -34,10 +34,8 @@ public class Lista {
             if (!nodoActual.hasSiguiente() && !nodoActual.valorIs(valor)) {
                 nodoActual.setSiguiente(nuevoNodo);
                 this.cantidadElementos++;
-                return;
             }
         }
-        return;
     }
 
 
@@ -63,19 +61,21 @@ public class Lista {
         }
     }
 
-    public Nodo buscar(int valor) {
+    public boolean buscar(int valor) {
         if (this.estaVacia()) {
-            return null;
+            return false;
         } else {
             Nodo nodoActual = this.inicio;
-            while (!nodoActual.valorIs(valor) || !nodoActual.hasSiguiente()) {
-                nodoActual = nodoActual.getSiguiente();
+            boolean bandera=true;
+            while (bandera && nodoActual.hasSiguiente()) {
+                if (nodoActual.valorIs(valor)) {
+                    bandera = false;
+                } else {
+                    nodoActual = nodoActual.getSiguiente();
+                }
             }
-            if (nodoActual.valorIs(valor)){
-                return nodoActual;
-            }
+            return nodoActual.valorIs(valor);
         }
-        return null;
     }
 
 
