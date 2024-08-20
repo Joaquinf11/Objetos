@@ -26,18 +26,19 @@ public class Main {
         Scanner sc= new Scanner(System.in);
         while (accion != 0){
             if (accion == 1){
-                System.out.println("Ingrese nombre de Socio: ");
+                System.out.print("Ingrese nombre de Socio: ");
                 String nombreSocio= sc.nextLine();
-                System.out.println("Ingrese numero de Socio: ");
+                System.out.print("Ingrese numero de Socio: ");
                 int numeroSocio= sc.nextInt();
                 Biblioteca.altaSocio(nombreSocio,numeroSocio);
             }
             if (accion== 5){
-                System.out.println("Ingrese el numero de Socio: ");
+                System.out.print("Ingrese el numero de Socio: ");
                 int numeroSocio= sc.nextInt();
-
-                Socio resultado = resultado.buscarSocio(Biblioteca.getSocios(),numeroSocio);
+                Socio resultado=null;
+                resultado=resultado.buscarSocio(Biblioteca.getSocios(),numeroSocio);
                 System.out.println(resultado.getNombreSocio());
+
             }
             accion=mostrarMenu();
         }
