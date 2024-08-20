@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Socio {
-    private ArrayList<Socio> socios;
     private final String nombreSocio;
     private final int idSocio;
     private ArrayList<Prestamo> prestamos;
@@ -12,7 +11,6 @@ public class Socio {
     public Socio(String nombre,int idSocio) {
         this.nombreSocio = nombre;
         this.idSocio=idSocio;
-        this.socios= new ArrayList<Socio>();
         this.prestamos=new ArrayList<Prestamo>();
     }
 
@@ -20,15 +18,7 @@ public class Socio {
         return idSocio;
     }
 
-    public void addSocio(Socio socio){
-        socios.add(socio);
-    }
-
-    public ArrayList<Socio> getSocios() {
-        return this.socios;
-    }
-
-    public Socio getSocio(String nombre){
+    public Socio buscarSocio(ArrayList<Socio> socios,String nombre){
         for (Socio socio: socios){
             if (Objects.equals(socio.getNombre(),nombre)){
                 return socio;
