@@ -2,22 +2,44 @@ package bibilioteca;
 
 import java.util.Scanner;
 
+
+
 public class Main {
 
-    public int mostrarMenu(){
+    public static int mostrarMenu(){
         Scanner scanner= new Scanner(System.in);
         System.out.println("Bienvenido al programa de la Biblioteca\n");
 
-        System.out.print( "1 - Ingresar un  nuevo Socio\n" +
+        System.out.print(   "0 - Salir\n" +
+                            "1 - Ingresar un  nuevo Socio\n" +
                             "2 - Ingresar un nuevo Autor\n" +
-                            "5 - Ingresar un libro nuevo \n" +
-                            "3 - Ingresar un nuevo Prestamo \n" +
-                            "4 - Ingresar una Devolucion\n "
+                            "3 - Ingresar un libro nuevo \n" +
+                            "4 - Ingresar un nuevo Prestamo \n" +
+                            "5 - Ingresar una Devolucion\n "
+
                             );
         return scanner.nextInt();
     }
 
     public static void main(String args[]){
-        
+        int accion=mostrarMenu();
+        Scanner sc= new Scanner(System.in);
+        while (accion != 0){
+            if (accion == 1){
+                System.out.println("Ingrese nombre de Socio: ");
+                String nombreSocio= sc.nextLine();
+                System.out.println("Ingrese numero de Socio: ");
+                int numeroSocio= sc.nextInt();
+                Biblioteca.altaSocio(nombreSocio,numeroSocio);
+            }
+            if (accion== 5){
+                System.out.println("Ingrese el numero de Socio: ");
+                int numeroSocio= sc.nextInt();
+
+                Socio resultado = resultado.buscarSocio(Biblioteca.getSocios(),numeroSocio);
+                System.out.println(resultado.getNombreSocio());
+            }
+            accion=mostrarMenu();
+        }
     }
 }
