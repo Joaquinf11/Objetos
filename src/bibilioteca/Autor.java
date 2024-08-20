@@ -7,12 +7,12 @@ import java.util.Objects;
 public class Autor {
     private final String nombreAutor;
     private final String nacionalidad;
-    private ArrayList<Libro> libros;
+    private Libro[] libros;
 
     public Autor(String autor,String nacionalidad) {
         this.nombreAutor = autor;
         this.nacionalidad = nacionalidad;
-        libros= new ArrayList<Libro>();
+        this.libros= new Libro[0];
     }
 
     public String getNacionalidad() {
@@ -24,12 +24,8 @@ public class Autor {
     }
 
 
-    public void addLibros(Libro libro){
-        libros.add(libro);
 
-    }
-
-    public Libro getLibro(String titulo){
+    public Libro getLibros(String titulo){
         for (Libro libro: libros){
             if(Objects.equals(libro.getTitulo(), titulo)){
                 return libro;
@@ -38,11 +34,11 @@ public class Autor {
         return null;
     }
 
-    public Autor buscarAutor( ArrayList<Autor>autores,String nombre){
-        for (Autor autor :autores){
-            if (Objects.equals(autor.getnombreAutor(),nombre))
-                return autor;
-        }
-        return null;
+    public void agregarLibros(Libro nuevoLibro){
+        Libro[] nuevoArreglo = new Libro[libros.length + 1];
+        System.arraycopy(libros, 0, nuevoArreglo, 0, libros.length);
+        nuevoArreglo[nuevoArreglo.length - 1] = nuevoLibro;
+        libros = nuevoArreglo;
     }
+   
 }
