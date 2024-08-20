@@ -20,15 +20,5 @@ public class Libro {
         return cantidadPaginas;
     }
 
-    public Libro buscarLibro(ArrayList<Libro> libros,String titulo){
-        for (Libro libro : libros){
-            if (Objects.equals(libro.getTitulo(),titulo)){
-                return libro;
-            }
-        }
-        return null;
-    }
-    public void agregarLibro(ArrayList<Libro>libros,Libro libro){
-        libros.add(libro);
-    }
+
 }
