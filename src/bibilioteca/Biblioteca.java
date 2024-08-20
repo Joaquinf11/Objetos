@@ -4,27 +4,27 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Biblioteca {
-    private ArrayList<Socio> socios;
+    private static  ArrayList<Socio> socios;
     private ArrayList<Autor> autores;
     private ArrayList <Ejemplar> ejemplares;
 
     public Biblioteca(){
-        this.socios= new ArrayList<Socio>();
+        socios= new ArrayList<Socio>();
         this.autores= new ArrayList<Autor>();
         this.ejemplares= new ArrayList<Ejemplar>();
 
     }
 
-    public ArrayList<Socio> getSocios() {
-        return this.socios;
+    public static ArrayList<Socio> getSocios() {
+        return socios;
     }
 
     public ArrayList<Autor> getAutores() {
         return this.autores;
     }
 
-    public void altaSocio(String nombreSocio,int idSocio){
-        socios.add(new Socio(nombreSocio,idSocio));
+    public static void altaSocio(String nombreSocio, int idSocio){
+      socios.add(new Socio(nombreSocio,idSocio));
     }
 
     public void altaAutor(String nombreAutor, String nacionalidad){
@@ -33,7 +33,7 @@ public class Biblioteca {
 
     public void altaLibro(String nombreAutor,String titulo,int cantidadPaginas){
         Libro libro= new Libro(titulo,cantidadPaginas);
-        agregarEjemplar(ejemplares,new Ejemplar());
+        //gregarEjemplar(ejemplares,new Ejemplar());
 
 
     }
