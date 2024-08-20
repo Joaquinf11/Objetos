@@ -11,18 +11,18 @@ public  class Main {
         lista.agregar(2);
         lista.agregar(3);
 
-//        int resultado= lista.recuperar(5);
-//        boolean resultado=lista.buscar(3);
-//        System.out.println(resultado);
+        int resultado= lista.recuperar(5);
+        //boolean resultado=lista.buscar(3);
+        System.out.println(resultado);
 
-//        lista.eliminar(1);
-//
-//
-//        lista.insertar(4,4);
-//        lista.insertar(0,1);
-//        lista.insertar(9,2);
+        lista.eliminar(1);
 
-//      System.out.print( lista.recuperar(4));
+
+        lista.insertar(4,4);
+        lista.insertar(0,1);
+        lista.insertar(9,2);
+
+      System.out.print( lista.recuperar(4));
 
         lista.mostrarLista();
 
@@ -35,19 +35,21 @@ public  class Main {
         lista.agregar(3);
 
 
-//        lista.eliminar(1);
-//        lista.eliminar(2);
-//        lista.eliminar(3);
-//
-//
-//        lista.insertar(4,4);
-//      lista.insertar(0,1);
-//        lista.insertar(9,2);
+        lista.eliminar(1);
+        lista.eliminar(2);
+        lista.eliminar(3);
+
+
+        lista.insertar(4,4);
+        lista.insertar(0,1);
+        lista.insertar(9,2);
 
         System.out.println( lista.recuperar(4));
         System.out.println( lista.recuperar(1));
         System.out.println( lista.recuperar(2));
-      lista.mostrarLista();
+
+
+        lista.mostrarLista();
 
     }
 
@@ -73,7 +75,7 @@ public  class Main {
 
         if (!pila.estaVacia()){
             throw new AssertionError("Error en la funcion: estaVacia");
-        };
+        }
         System.out.println("Test: estaVacia Paso!!");
     }
 
@@ -86,7 +88,7 @@ public  class Main {
 
         if (cola.desencolar() != 1){
             throw new AssertionError("Error en el encolar//desencolar");
-        };
+        }
         System.out.println("Test: desencolar//encolar Paso!!");
 
 //        if (!cola.toString().equals("2, 3")){
