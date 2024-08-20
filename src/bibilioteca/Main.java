@@ -24,22 +24,24 @@ public class Main {
     public static void main(String args[]){
         int accion=mostrarMenu();
         Scanner sc= new Scanner(System.in);
+        Biblioteca biblioteca= new Biblioteca();
         while (accion != 0){
             if (accion == 1){
                 System.out.print("Ingrese nombre de Socio: ");
                 String nombreSocio= sc.nextLine();
                 System.out.print("Ingrese numero de Socio: ");
                 int numeroSocio= sc.nextInt();
-                Biblioteca.altaSocio(nombreSocio,numeroSocio);
+                biblioteca.altaSocio(nombreSocio,numeroSocio);
+                biblioteca.mostrarSocios();
             }
-            if (accion== 5){
-                System.out.print("Ingrese el numero de Socio: ");
-                int numeroSocio= sc.nextInt();
-                Socio resultado=null;
-                resultado=resultado.buscarSocio(Biblioteca.getSocios(),numeroSocio);
-                System.out.println(resultado.getNombreSocio());
-
-            }
+//            if (accion== 5){
+//                System.out.print("Ingrese el numero de Socio: ");
+//                int numeroSocio= sc.nextInt();
+//                Socio resultado=null;
+//                resultado=resultado.buscarSocio(Biblioteca.getSocios(),numeroSocio);
+//                System.out.println(resultado.getNombreSocio());
+//
+//            }
             accion=mostrarMenu();
         }
     }
