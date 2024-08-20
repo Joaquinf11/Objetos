@@ -1,22 +1,18 @@
 package bibilioteca;
 
 import java.util.ArrayList;
+import java.util.Objects;
 
 public class Ejemplar {
-    private final Libro libro;
+    private ArrayList<Libro> libros;
     private boolean disponible;
     private int ejemplares_prestados;
     private int ejemplares_disponibles;
 
-    public Ejemplar(Libro libro, boolean disponible) {
-        this.libro = libro;
-        this.disponible = disponible;
+    public Ejemplar() {
+        this.libros = new ArrayList<Libro>();
         this.ejemplares_prestados=0;
         this.ejemplares_disponibles=0;
-    }
-
-    public Libro getLibro() {
-        return this.libro;
     }
 
     public int getEjemplares_prestados() {
@@ -45,5 +41,17 @@ public class Ejemplar {
         this.ejemplares_prestados--;
     }
 
+    public Ejemplar buscarEjemplar(ArrayList<Ejemplar> ejemplares,Libro libro){
+        for (Ejemplar ejemplar: ejemplares){
+            if (Objects.equals(libro.buscarLibro(libros,libro.getTitulo()).getTitulo(), libro.getTitulo())){
+                    return ejemplar;
+            }
+        }
+        return null;
+    }
+
+    public void agregarEjemplar(ArrayList<Ejemplar>ejemplares,Ejemplar ejemplar ){
+        ejemplares.add(ejemplar);
+    }
 
 }
