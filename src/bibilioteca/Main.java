@@ -34,6 +34,14 @@ public class Main {
                 biblioteca.altaSocio(nombreSocio,numeroSocio);
                 biblioteca.mostrarSocios();
             }
+            if (accion == 2){
+                System.out.print("Ingrese nombre de Autor: ");
+                String nombreAutor= sc.nextLine();
+                System.out.print("Ingrese nacionalidad de Autor: ");
+                String nacionalidad= sc.nextLine();
+                biblioteca.altaAutor(nombreAutor,nacionalidad);
+                biblioteca.mostrarAutor();
+            }
 //            if (accion== 5){
 //                System.out.print("Ingrese el numero de Socio: ");
 //                int numeroSocio= sc.nextInt();

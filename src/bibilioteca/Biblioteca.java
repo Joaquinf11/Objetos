@@ -5,13 +5,13 @@ import java.util.Objects;
 
 public class Biblioteca {
     private static Socio[] socios;
-    private Autor[] autores;
-    private Ejemplar[] ejemplares;
+    private static Autor[] autores;
+    private static Ejemplar[] ejemplares;
 
     public Biblioteca(){
         socios= new Socio[0];
-        this.autores= new Autor[0];
-        this.ejemplares= new Ejemplar[0];
+        autores= new Autor[0];
+        ejemplares= new Ejemplar[0];
 
     }
 
@@ -20,10 +20,10 @@ public class Biblioteca {
     }
 
     public Autor[] getAutores() {
-        return this.autores;
+        return autores;
     }
 
-    public Ejemplar[] getEjemplares(){ return this.ejemplares;}
+    public Ejemplar[] getEjemplares(){ return ejemplares;}
 
 
     public static void altaSocio(String nombreSocio, int idSocio){
@@ -39,8 +39,18 @@ public class Biblioteca {
             System.out.println(socio.getNombreSocio());
         }
     }
-    public void altaAutor(String nombreAutor, String nacionalidad){
 
+    public static void altaAutor(String nombreAutor, String nacionalidad){
+        Autor[] nuevoArreglo = new Autor[autores.length + 1];
+        System.arraycopy(autores, 0, nuevoArreglo, 0, autores.length);
+        nuevoArreglo[nuevoArreglo.length - 1] = new Autor(nombreAutor,nacionalidad);
+        autores = nuevoArreglo;
+    }
+
+    public void mostrarAutor(){
+        for (Autor autor:autores){
+            System.out.println(autor.getnombreAutor());
+        }
     }
 
     public void altaLibro(String nombreAutor,String titulo,int cantidadPaginas){
