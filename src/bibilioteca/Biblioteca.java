@@ -9,7 +9,7 @@ public class Biblioteca {
     private ArrayList <Ejemplar> ejemplares;
 
     public Biblioteca(){
-        socios= new ArrayList<Socio>();
+        socios= new ArrayList<>();
         this.autores= new ArrayList<Autor>();
         this.ejemplares= new ArrayList<Ejemplar>();
 
