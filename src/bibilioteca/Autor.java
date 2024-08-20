@@ -40,5 +40,5 @@ public class Autor {
         nuevoArreglo[nuevoArreglo.length - 1] = nuevoLibro;
         libros = nuevoArreglo;
     }
-   
+
 }

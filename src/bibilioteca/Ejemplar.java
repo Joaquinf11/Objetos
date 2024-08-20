@@ -4,15 +4,16 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Ejemplar {
-    private ArrayList<Libro> libros;
+    private Libro libro;
     private boolean disponible;
     private int ejemplares_prestados;
     private int ejemplares_disponibles;
 
-    public Ejemplar() {
-        this.libros = new ArrayList<Libro>();
+    public Ejemplar(Libro libro) {
+        this.libro = libro;
         this.ejemplares_prestados=0;
-        this.ejemplares_disponibles=0;
+        this.ejemplares_disponibles=1;
+        this.disponible=false;
     }
 
     public int getEjemplares_prestados() {
@@ -31,27 +32,20 @@ public class Ejemplar {
         this.disponible= ejemplares_disponibles > 1;
     }
 
-    public void restarEjemplar(){
-        this.ejemplares_disponibles--;
-        this.ejemplares_prestados++;
-    }
-
-    public void sumarEjemplar(){
-        this.ejemplares_disponibles++;
-        this.ejemplares_prestados--;
-    }
-
-    public Ejemplar buscarEjemplar(ArrayList<Ejemplar> ejemplares,Libro libro){
-        for (Ejemplar ejemplar: ejemplares){
-            if (Objects.equals(libro.buscarLibro(libros,libro.getTitulo()).getTitulo(), libro.getTitulo())){
-                    return ejemplar;
-            }
+    public void sacarEjemplar(Libro viejoLibro){
+        if (Objects.equals(libro.getTitulo(),viejoLibro.getTitulo()) && getEjemplares_disponibles() > 1){
+            this.ejemplares_disponibles--;
+            this.ejemplares_prestados++;
         }
-        return null;
+        else{
+            System.out.println("No se puede prestar libro porque solo queda uno");
+        }
     }
 
-    public void agregarEjemplar(ArrayList<Ejemplar>ejemplares,Ejemplar ejemplar ){
-        ejemplares.add(ejemplar);
-    }
+
+
+
+
+
 
 }
