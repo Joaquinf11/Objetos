@@ -18,16 +18,9 @@ public class Socio {
         return idSocio;
     }
 
-    public Socio buscarSocio(ArrayList<Socio> socios,String nombre){
-        for (Socio socio: socios){
-            if (Objects.equals(socio.getNombre(),nombre)){
-                return socio;
-            }
-        }
-        return null;
-    }
 
-    public String getNombre() {
+
+    public String getNombreSocio() {
         return this.nombreSocio;
     }
 
@@ -39,6 +32,15 @@ public class Socio {
         for (Prestamo prestamo: prestamos){
             if (prestamo.getIdPrestamo() == idPrestamo){
                 return prestamo;
+            }
+        }
+        return null;
+    }
+
+    public Socio buscarSocio(ArrayList<Socio> socios,int idSocio) {
+        for (Socio socio: socios){
+            if (socio.getIdSocio() == idSocio){
+                return  socio;
             }
         }
         return null;
