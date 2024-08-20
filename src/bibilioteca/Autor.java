@@ -38,7 +38,7 @@ public class Autor {
         return null;
     }
 
-    public Autor getAutor( ArrayList<Autor>autores,String nombre){
+    public Autor buscarAutor( ArrayList<Autor>autores,String nombre){
         for (Autor autor :autores){
             if (Objects.equals(autor.getnombreAutor(),nombre))
                 return autor;
