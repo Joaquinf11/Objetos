@@ -6,12 +6,12 @@ import java.util.Objects;
 public class Socio {
     private final String nombreSocio;
     private final int idSocio;
-    private ArrayList<Prestamo> prestamos;
+    private Prestamo[] prestamos;
 
     public Socio(String nombre,int idSocio) {
         this.nombreSocio = nombre;
         this.idSocio=idSocio;
-        this.prestamos=new ArrayList<Prestamo>();
+        this.prestamos=new Prestamo[0];
     }
 
     public int getIdSocio() {
@@ -24,7 +24,7 @@ public class Socio {
         return this.nombreSocio;
     }
 
-    public ArrayList<Prestamo> getPrestamos() {
+    public Prestamo[] getPrestamos() {
         return this.prestamos;
     }
 
@@ -32,15 +32,6 @@ public class Socio {
         for (Prestamo prestamo: prestamos){
             if (prestamo.getIdPrestamo() == idPrestamo){
                 return prestamo;
-            }
-        }
-        return null;
-    }
-
-    public Socio buscarSocio(ArrayList<Socio> socios,int idSocio) {
-        for (Socio socio: socios){
-            if (socio.getIdSocio() == idSocio){
-                return  socio;
             }
         }
         return null;
