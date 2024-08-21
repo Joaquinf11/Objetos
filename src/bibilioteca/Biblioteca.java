@@ -83,6 +83,20 @@ public class Biblioteca {
         ejemplares = nuevoArreglo;
     }
 
+    public void agregarEjemplar(String titulo) {
+        Ejemplar ejemplar=buscarEjemplar(titulo);
+        ejemplar.addDisponible();
+    }
+
+    public Ejemplar buscarEjemplar(String titulo){
+        for (Ejemplar ejemplar: ejemplares){
+            if (Objects.equals(ejemplar.getLibro().getTitulo(), titulo)) {
+                return  ejemplar;
+            }
+        }
+        return null;
+    }
+
     public void mostrarEjemplares(){
         for (Ejemplar ejemplar:ejemplares){
             Libro libro=ejemplar.getLibro( );
