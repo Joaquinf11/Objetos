@@ -1,27 +1,27 @@
 package bibilioteca;
-
+import java.time.LocalDateTime;
 public class Prestamo {
     private final int idPrestamo;
-    private final int fechaDevolucion;
-    private final int fechaEntrega;
+    private final String  fechaDevolucion;
+    private final String fechaPrestamo;
 
 
-    public Prestamo(int idPrestamo, int fechaDevolucion, int fechaEntrega) {
+    public Prestamo(int idPrestamo) {
         this.idPrestamo = idPrestamo;
-        this.fechaDevolucion = fechaDevolucion;
-        this.fechaEntrega = fechaEntrega;
+        this.fechaPrestamo = LocalDateTime.now().toString();
+        this.fechaDevolucion = LocalDateTime.now().plusMonths(1).toString();
     }
 
     public int getIdPrestamo() {
         return idPrestamo;
     }
 
-    public int getFechaDevolucion() {
+    public String getFechaDevolucion() {
         return fechaDevolucion;
     }
 
-    public int getFechaEntrega() {
-        return fechaEntrega;
+    public String getFechaPrestamo() {
+        return fechaPrestamo;
     }
 
 
