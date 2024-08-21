@@ -40,7 +40,17 @@ public class Main {
                 System.out.print("Ingrese nacionalidad de Autor: ");
                 String nacionalidad= sc.nextLine();
                 biblioteca.altaAutor(nombreAutor,nacionalidad);
-                biblioteca.mostrarAutor();
+                biblioteca.mostrarAutores();
+            }
+            if (accion ==3){
+                System.out.print("Ingrese el titulo del libro: ");
+                String titulo=sc.nextLine();
+                System.out.print("Ingrese la cantidad de paginas: ");
+                int cantPaginas= sc.nextInt();
+                System.out.print("Ingrese el nombre del autor: ");
+                String nombreAutor=sc.nextLine();
+                biblioteca.altaLibro(titulo,cantPaginas,nombreAutor);
+                biblioteca.mostrarEjemplares();
             }
 //            if (accion== 5){
 //                System.out.print("Ingrese el numero de Socio: ");

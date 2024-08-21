@@ -25,9 +25,24 @@ public class Biblioteca {
 
     public Ejemplar[] getEjemplares(){ return ejemplares;}
 
+    public Autor getAutor(String nombreAutor){
+        for (Autor autor: getAutores()){
+            if (Objects.equals(autor.getnombreAutor(),nombreAutor)){
+                return  autor;
+            }
+        }
+        return null;
+    }
+    public boolean hasAutor(String nombreAutor){
+        for (Autor autor: getAutores()){
+            if (Objects.equals(autor.getnombreAutor(),nombreAutor)){
+                return  true;
+            }
+        }
+        return false;
+    }
 
     public static void altaSocio(String nombreSocio, int idSocio){
-
         Socio[] nuevoArreglo = new Socio[socios.length + 1];
         System.arraycopy(socios, 0, nuevoArreglo, 0, socios.length);
         nuevoArreglo[nuevoArreglo.length - 1] = new Socio(nombreSocio,idSocio);
@@ -47,16 +62,22 @@ public class Biblioteca {
         autores = nuevoArreglo;
     }
 
-    public void mostrarAutor(){
+    public void mostrarAutores(){
         for (Autor autor:autores){
             System.out.println(autor.getnombreAutor());
         }
     }
 
-    public void altaLibro(String nombreAutor,String titulo,int cantidadPaginas){
+    public void altaLibro(String titulo,int cantidadPaginas,String nombreAutor){
         Libro libro= new Libro(titulo,cantidadPaginas);
-        //gregarEjemplar(ejemplares,new Ejemplar());
+        Ejemplar ejemplar= new Ejemplar(libro);
+        Autor autor= getAutor(nombreAutor);
+        autor.agregarLibro(libro);
+    }
 
-
+    public void mostrarEjemplares(){
+        for (Ejemplar ejemplar:ejemplares){
+            System.out.println(ejemplar.getLibro( ).getTitulo());
+        }
     }
 }

@@ -16,6 +16,11 @@ public class Ejemplar {
         this.disponible=false;
     }
 
+
+    public Libro getLibro() {
+        return this.libro;
+    }
+
     public int getEjemplares_prestados() {
         return this.ejemplares_prestados;
     }
@@ -32,8 +37,10 @@ public class Ejemplar {
         this.disponible= ejemplares_disponibles > 1;
     }
 
-    public void agrgegarEjemplar(Libro nuevoLibro){
+
+    public void agregarEjemplar(Libro nuevoLibro){
         if (Objects.equals(libro.getTitulo(),nuevoLibro.getTitulo())) {
+            this.libro= nuevoLibro;
             this.ejemplares_disponibles++;
             if (getEjemplares_prestados()==1){
                 this.disponible=false;

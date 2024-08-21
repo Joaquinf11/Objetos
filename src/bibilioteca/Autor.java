@@ -34,7 +34,7 @@ public class Autor {
         return null;
     }
 
-    public void agregarLibros(Libro nuevoLibro){
+    public void agregarLibro(Libro nuevoLibro){
         Libro[] nuevoArreglo = new Libro[libros.length + 1];
         System.arraycopy(libros, 0, nuevoArreglo, 0, libros.length);
         nuevoArreglo[nuevoArreglo.length - 1] = nuevoLibro;
