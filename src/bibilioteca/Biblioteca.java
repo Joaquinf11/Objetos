@@ -127,4 +127,10 @@ public class Biblioteca {
             System.out.println("No se pudo cargar prestamo");
         }
     }
+
+    public void mostrarDescripcion(String titulo){
+        Ejemplar ejemplar=buscarEjemplar(titulo);
+        System.out.println("El libro " + ejemplar.getLibro().getTitulo() + "creado por el autor " );
+    }
+
 }

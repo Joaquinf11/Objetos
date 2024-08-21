@@ -16,7 +16,8 @@ public class Main {
                             "3 - Ingresar un libro nuevo \n" +
                             "4 - Agregar un ejemplar de un libro \n" +
                             "5 - Ingresar un nuevo Prestamo \n" +
-                            "6 - Ingresar una Devolucion\n "
+                            "6 - Ingresar una Devolucion\n " +
+                            "7 - Mostrar informacion del libro\n"
                             );
         return scanner.nextInt();
     }
@@ -75,6 +76,18 @@ public class Main {
                 String titulo= sc.nextLine();
                 sc.nextLine();
                 biblioteca.cargarPrestamo(idPrestamo,nombreSocio,titulo);
+            }
+            if (accion == 6){
+                System.out.print("Ingrese el numero de Prestamo: ");
+                int idPrestamo= sc.nextInt();
+                sc.nextLine();
+                System.out.println("Todavia no esta hecho");
+            }
+            if (accion==7){
+                System.out.print("Ingrese el titulo del libro: ");
+                String titulo=sc.nextLine();
+                sc.nextLine();
+                biblioteca.mostrarDescripcion();
             }
             accion=mostrarMenu();
         }

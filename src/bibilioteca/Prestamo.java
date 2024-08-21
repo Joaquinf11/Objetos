@@ -4,7 +4,7 @@ public class Prestamo {
     private final int idPrestamo;
     private final String  fechaDevolucion;
     private final String fechaPrestamo;
-    private Ejemplar ejemplar;
+    private final Ejemplar ejemplar;
 
 
     public Prestamo(int idPrestamo,Ejemplar ejemplar) {
