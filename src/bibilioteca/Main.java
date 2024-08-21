@@ -59,14 +59,12 @@ public class Main {
                 biblioteca.agregarEjemplar(titulo);
                 biblioteca.mostrarEjemplares();
             }
-//            if (accion== 5){
-//                System.out.print("Ingrese el numero de Socio: ");
-//                int numeroSocio= sc.nextInt();
-//                Socio resultado=null;
-//                resultado=resultado.buscarSocio(Biblioteca.getSocios(),numeroSocio);
-//                System.out.println(resultado.getNombreSocio());
-//
-//            }
+            if (accion== 5){
+                System.out.print("Ingrese el nombre del Socio: ");
+                String nombreSocio= sc.nextLine();
+                System.out.print("Ingrese el numero de Prestamo: ");
+
+            }
             accion=mostrarMenu();
         }
     }
