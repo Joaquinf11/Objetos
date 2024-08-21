@@ -17,7 +17,6 @@ public class Main {
                             "4 - Agregar un ejemplar de un libro \n" +
                             "5 - Ingresar un nuevo Prestamo \n" +
                             "6 - Ingresar una Devolucion\n "
-
                             );
         return scanner.nextInt();
     }

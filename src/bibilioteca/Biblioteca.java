@@ -100,7 +100,8 @@ public class Biblioteca {
     public void mostrarEjemplares(){
         for (Ejemplar ejemplar:ejemplares){
             Libro libro=ejemplar.getLibro( );
-            System.out.println(libro.getTitulo());
+            System.out.println("Nombre del libro: " + libro.getTitulo() + " Ejemplares disponibles:" + ejemplar.getEjemplares_disponibles() +
+                                " Ejemplares prestados:" + ejemplar.getEjemplares_prestados());
         }
     }
 }
