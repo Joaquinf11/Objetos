@@ -34,11 +34,22 @@ public class Autor {
         return null;
     }
 
+
     public void agregarLibro(Libro nuevoLibro){
         Libro[] nuevoArreglo = new Libro[libros.length + 1];
         System.arraycopy(libros, 0, nuevoArreglo, 0, libros.length);
         nuevoArreglo[nuevoArreglo.length - 1] = nuevoLibro;
         libros = nuevoArreglo;
+    }
+
+
+
+    public void mostrarLibros(){
+        System.out.print("[ ");
+        for(Libro libro : libros){
+            System.out.print(libro.getTitulo() + ", ");
+        }
+        System.out.println(" ]");
     }
 
 }
