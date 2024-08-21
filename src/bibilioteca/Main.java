@@ -14,8 +14,9 @@ public class Main {
                             "1 - Ingresar un  nuevo Socio\n" +
                             "2 - Ingresar un nuevo Autor\n" +
                             "3 - Ingresar un libro nuevo \n" +
-                            "4 - Ingresar un nuevo Prestamo \n" +
-                            "5 - Ingresar una Devolucion\n "
+                            "4 - Agregar un ejemplar de un libro \n" +
+                            "5 - Ingresar un nuevo Prestamo \n" +
+                            "6 - Ingresar una Devolucion\n "
 
                             );
         return scanner.nextInt();
@@ -51,6 +52,12 @@ public class Main {
                 sc.nextLine();
                 String nombreAutor=sc.nextLine();
                 biblioteca.altaLibro(titulo,cantPaginas,nombreAutor);
+                biblioteca.mostrarEjemplares();
+            }
+            if (accion == 4){
+                System.out.print("Ingrese el titulo del libro: ");
+                String titulo=sc.nextLine();
+                biblioteca.agregarEjemplar(titulo);
                 biblioteca.mostrarEjemplares();
             }
 //            if (accion== 5){
