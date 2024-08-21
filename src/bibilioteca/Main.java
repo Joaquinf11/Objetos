@@ -37,33 +37,44 @@ public class Main {
             if (accion == 2){
                 System.out.print("Ingrese nombre de Autor: ");
                 String nombreAutor= sc.nextLine();
+                sc.nextLine();
                 System.out.print("Ingrese nacionalidad de Autor: ");
                 String nacionalidad= sc.nextLine();
+                sc.nextLine();
                 biblioteca.altaAutor(nombreAutor,nacionalidad);
                 biblioteca.mostrarAutores();
             }
             if (accion ==3){
                 System.out.print("Ingrese el titulo del libro: ");
                 String titulo=sc.nextLine();
+                sc.nextLine();
                 System.out.print("Ingrese la cantidad de paginas: ");
                 int cantPaginas= sc.nextInt();
-                System.out.print("Ingrese el nombre del autor: ");
                 sc.nextLine();
+                System.out.print("Ingrese el nombre del autor: ");
                 String nombreAutor=sc.nextLine();
+                sc.nextLine();
                 biblioteca.altaLibro(titulo,cantPaginas,nombreAutor);
                 biblioteca.mostrarEjemplares();
             }
             if (accion == 4){
                 System.out.print("Ingrese el titulo del libro: ");
                 String titulo=sc.nextLine();
+                sc.nextLine();
                 biblioteca.agregarEjemplar(titulo);
                 biblioteca.mostrarEjemplares();
             }
             if (accion== 5){
                 System.out.print("Ingrese el nombre del Socio: ");
                 String nombreSocio= sc.nextLine();
+                sc.nextLine();
                 System.out.print("Ingrese el numero de Prestamo: ");
-
+                int idPrestamo= sc.nextInt();
+                sc.nextLine();
+                System.out.print("Ingrese el titulo del libro: ");
+                String titulo= sc.nextLine();
+                sc.nextLine();
+                biblioteca.cargarPrestamo(idPrestamo,nombreSocio,titulo);
             }
             accion=mostrarMenu();
         }

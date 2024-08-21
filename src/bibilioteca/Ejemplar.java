@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class Ejemplar {
-    private Libro libro;
+    private final Libro libro;
     private boolean disponible;
     private int ejemplares_prestados;
     private int ejemplares_disponibles;
@@ -37,7 +37,7 @@ public class Ejemplar {
         this.disponible= ejemplares_disponibles > 1;
     }
 
-    public void addDisponible(){
+    public void sumarEjemplar(){
         this.ejemplares_disponibles++;
         if (ejemplares_disponibles > 1){
             this.disponible=true;
@@ -45,17 +45,17 @@ public class Ejemplar {
     }
 
 
-//    public void sacarEjemplar(Libro viejoLibro){
-//        if (Objects.equals(libro.getTitulo(),viejoLibro.getTitulo()) && getEjemplares_disponibles() > 1){
-//            this.ejemplares_disponibles--;
-//            this.ejemplares_prestados++;
-//            if (getEjemplares_prestados()==1){
-//                this.disponible=false;
-//            }
-//        }
-//        else{
-//            System.out.println("No se puede prestar libro porque solo queda uno");
-//        }
-//    }
+    public void restarEjemplar(){
+        if (getEjemplares_disponibles() > 1){
+            this.ejemplares_disponibles--;
+            this.ejemplares_prestados++;
+            if (getEjemplares_prestados()==1){
+                this.disponible=false;
+            }
+        }
+        else{
+            System.out.println("No se puede prestar libro porque solo queda uno");
+        }
+    }
 
 }

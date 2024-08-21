@@ -4,12 +4,14 @@ public class Prestamo {
     private final int idPrestamo;
     private final String  fechaDevolucion;
     private final String fechaPrestamo;
+    private Ejemplar ejemplar;
 
 
-    public Prestamo(int idPrestamo) {
+    public Prestamo(int idPrestamo,Ejemplar ejemplar) {
         this.idPrestamo = idPrestamo;
         this.fechaPrestamo = LocalDateTime.now().toString();
         this.fechaDevolucion = LocalDateTime.now().plusMonths(1).toString();
+        this.ejemplar= ejemplar;
     }
 
     public int getIdPrestamo() {
@@ -24,6 +26,7 @@ public class Prestamo {
         return fechaPrestamo;
     }
 
-
-
+    public Ejemplar getEjemplar() {
+        return this.ejemplar;
+    }
 }

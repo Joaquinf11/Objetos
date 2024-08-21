@@ -36,4 +36,18 @@ public class Socio {
         }
         return null;
     }
+
+    public void agregarPrestamo(Prestamo prestamo){
+        Prestamo[] nuevoArreglo= new Prestamo[prestamos.length + 1];
+        System.arraycopy(prestamos, 0, nuevoArreglo, 0, prestamos.length);
+        nuevoArreglo[nuevoArreglo.length - 1] = prestamo;
+        prestamos = nuevoArreglo;
+    }
+
+    public void mostrarPrestamos(){
+        for (Prestamo prestamo : prestamos){
+            System.out.println("Numero de prestamo: " + prestamo.getIdPrestamo() + " Fecha de prestamo: " + prestamo.getFechaPrestamo() +
+                                " Fecha de devolucion: " + prestamo.getFechaDevolucion() + "Libro prestado: " + prestamo.getEjemplar().getLibro().getTitulo());
+        }
+    }
 }

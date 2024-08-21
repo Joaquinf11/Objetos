@@ -1,5 +1,7 @@
 package bibilioteca;
 
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.ObjectType;
+
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -49,6 +51,14 @@ public class Biblioteca {
         socios = nuevoArreglo;
     }
 
+    public Socio buscarSocio(String nombreSocio){
+        for (Socio socio: socios){
+            if (Objects.equals(socio.getNombreSocio(),nombreSocio)){
+                return socio;
+            }
+        }
+        return null;
+    }
     public void mostrarSocios(){
         for (Socio socio:socios){
             System.out.println(socio.getNombreSocio());
@@ -85,7 +95,7 @@ public class Biblioteca {
 
     public void agregarEjemplar(String titulo) {
         Ejemplar ejemplar=buscarEjemplar(titulo);
-        ejemplar.addDisponible();
+        ejemplar.sumarEjemplar();
     }
 
     public Ejemplar buscarEjemplar(String titulo){
@@ -102,6 +112,19 @@ public class Biblioteca {
             Libro libro=ejemplar.getLibro( );
             System.out.println("Nombre del libro: " + libro.getTitulo() + " Ejemplares disponibles:" + ejemplar.getEjemplares_disponibles() +
                                 " Ejemplares prestados:" + ejemplar.getEjemplares_prestados());
+        }
+    }
+
+    public void cargarPrestamo(int idPrestamo,String nombreSocio,String titulo){
+        Ejemplar ejemplar= buscarEjemplar(titulo);
+        if (ejemplar != null && ejemplar.isDisponible()) {
+            Socio socio = buscarSocio(nombreSocio);
+            socio.agregarPrestamo(new Prestamo(idPrestamo,ejemplar));
+            ejemplar.restarEjemplar();
+            socio.mostrarPrestamos();
+        }
+        else {
+            System.out.println("No se pudo cargar prestamo");
         }
     }
 }
