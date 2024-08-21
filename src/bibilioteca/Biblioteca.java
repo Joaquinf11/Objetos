@@ -63,21 +63,30 @@ public class Biblioteca {
     }
 
     public void mostrarAutores(){
+        System.out.println("-----Los autores cargados son:---------");
         for (Autor autor:autores){
-            System.out.println(autor.getnombreAutor());
+            System.out.println("Nombre y apellido: " + autor.getnombreAutor() + " Nacionalidad del autor: " + autor.getNacionalidad() );
         }
     }
 
     public void altaLibro(String titulo,int cantidadPaginas,String nombreAutor){
         Libro libro= new Libro(titulo,cantidadPaginas);
-        Ejemplar ejemplar= new Ejemplar(libro);
+        altaEjemplar(libro);
         Autor autor= getAutor(nombreAutor);
         autor.agregarLibro(libro);
     }
 
+    public void altaEjemplar(Libro nuevoLibro){
+        Ejemplar[] nuevoArreglo = new Ejemplar[ejemplares.length + 1];
+        System.arraycopy(ejemplares, 0, nuevoArreglo, 0, ejemplares.length);
+        nuevoArreglo[nuevoArreglo.length - 1] = new Ejemplar(nuevoLibro);
+        ejemplares = nuevoArreglo;
+    }
+
     public void mostrarEjemplares(){
         for (Ejemplar ejemplar:ejemplares){
-            System.out.println(ejemplar.getLibro( ).getTitulo());
+            Libro libro=ejemplar.getLibro( );
+            System.out.println(libro.getTitulo());
         }
     }
 }

@@ -48,6 +48,7 @@ public class Main {
                 System.out.print("Ingrese la cantidad de paginas: ");
                 int cantPaginas= sc.nextInt();
                 System.out.print("Ingrese el nombre del autor: ");
+                sc.nextLine();
                 String nombreAutor=sc.nextLine();
                 biblioteca.altaLibro(titulo,cantPaginas,nombreAutor);
                 biblioteca.mostrarEjemplares();
