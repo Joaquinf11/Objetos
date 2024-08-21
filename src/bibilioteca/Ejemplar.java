@@ -37,28 +37,25 @@ public class Ejemplar {
         this.disponible= ejemplares_disponibles > 1;
     }
 
-
-    public void agregarEjemplar(Libro nuevoLibro){
-        if (Objects.equals(libro.getTitulo(),nuevoLibro.getTitulo())) {
-            this.libro= nuevoLibro;
-            this.ejemplares_disponibles++;
-            if (getEjemplares_prestados()==1){
-                this.disponible=false;
-            }
+    public void addDisponible(){
+        this.ejemplares_disponibles++;
+        if (ejemplares_disponibles > 1){
+            this.disponible=true;
         }
     }
 
-    public void sacarEjemplar(Libro viejoLibro){
-        if (Objects.equals(libro.getTitulo(),viejoLibro.getTitulo()) && getEjemplares_disponibles() > 1){
-            this.ejemplares_disponibles--;
-            this.ejemplares_prestados++;
-            if (getEjemplares_prestados()==1){
-                this.disponible=false;
-            }
-        }
-        else{
-            System.out.println("No se puede prestar libro porque solo queda uno");
-        }
-    }
+
+//    public void sacarEjemplar(Libro viejoLibro){
+//        if (Objects.equals(libro.getTitulo(),viejoLibro.getTitulo()) && getEjemplares_disponibles() > 1){
+//            this.ejemplares_disponibles--;
+//            this.ejemplares_prestados++;
+//            if (getEjemplares_prestados()==1){
+//                this.disponible=false;
+//            }
+//        }
+//        else{
+//            System.out.println("No se puede prestar libro porque solo queda uno");
+//        }
+//    }
 
 }
