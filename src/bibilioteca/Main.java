@@ -12,12 +12,11 @@ public class Main {
 
         System.out.print(   "0 - Salir\n" +
                             "1 - Ingresar un  nuevo Socio\n" +
-                            "2 - Ingresar un nuevo Autor\n" +
-                            "3 - Ingresar un libro nuevo \n" +
-                            "4 - Agregar un ejemplar de un libro \n" +
-                            "5 - Ingresar un nuevo Prestamo \n" +
-                            "6 - Ingresar una Devolucion\n " +
-                            "7 - Mostrar informacion del libro\n"
+                            "2 - Ingresar un libro nuevo \n" +
+                            "3 - Agregar un ejemplar de un libro \n" +
+                            "4 - Ingresar un nuevo Prestamo \n" +
+                            "5 - Ingresar una Devolucion\n " +
+                            "6 - Mostrar informacion del libro\n"
                             );
         return scanner.nextInt();
     }
@@ -35,17 +34,8 @@ public class Main {
                 biblioteca.altaSocio(nombreSocio,numeroSocio);
                 biblioteca.mostrarSocios();
             }
-            if (accion == 2){
-                System.out.print("Ingrese nombre de Autor: ");
-                String nombreAutor= sc.nextLine();
-                sc.nextLine();
-                System.out.print("Ingrese nacionalidad de Autor: ");
-                String nacionalidad= sc.nextLine();
-                sc.nextLine();
-                biblioteca.altaAutor(nombreAutor,nacionalidad);
-                biblioteca.mostrarAutores();
-            }
-            if (accion ==3){
+
+            if (accion ==2){
                 System.out.print("Ingrese el titulo del libro: ");
                 String titulo=sc.nextLine();
                 sc.nextLine();
@@ -58,14 +48,14 @@ public class Main {
                 biblioteca.altaLibro(titulo,cantPaginas,nombreAutor);
                 biblioteca.mostrarEjemplares();
             }
-            if (accion == 4){
+            if (accion == 3){
                 System.out.print("Ingrese el titulo del libro: ");
                 String titulo=sc.nextLine();
                 sc.nextLine();
                 biblioteca.agregarEjemplar(titulo);
                 biblioteca.mostrarEjemplares();
             }
-            if (accion== 5){
+            if (accion== 4){
                 System.out.print("Ingrese el nombre del Socio: ");
                 String nombreSocio= sc.nextLine();
                 sc.nextLine();
@@ -77,17 +67,17 @@ public class Main {
                 sc.nextLine();
                 biblioteca.cargarPrestamo(idPrestamo,nombreSocio,titulo);
             }
-            if (accion == 6){
+            if (accion == 5){
                 System.out.print("Ingrese el numero de Prestamo: ");
                 int idPrestamo= sc.nextInt();
                 sc.nextLine();
                 System.out.println("Todavia no esta hecho");
             }
-            if (accion==7){
-                System.out.print("Ingrese el titulo del libro: ");
-                String titulo=sc.nextLine();
+            if (accion==6){
+                System.out.print("Ingrese el nombre del autor: ");
+                String nombreAutor=sc.nextLine();
                 sc.nextLine();
-                biblioteca.mostrarDescripcion();
+                biblioteca.mostrarDescripcion(nombreAutor);
             }
             accion=mostrarMenu();
         }
