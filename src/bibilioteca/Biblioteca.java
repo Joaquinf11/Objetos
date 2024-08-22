@@ -35,16 +35,9 @@ public class Biblioteca {
         }
         return null;
     }
-    public boolean hasAutor(String nombreAutor){
-        for (Autor autor: getAutores()){
-            if (Objects.equals(autor.getnombreAutor(),nombreAutor)){
-                return  true;
-            }
-        }
-        return false;
-    }
 
-    public static void altaSocio(String nombreSocio, int idSocio){
+
+    public  void altaSocio(String nombreSocio, int idSocio){
         Socio[] nuevoArreglo = new Socio[socios.length + 1];
         System.arraycopy(socios, 0, nuevoArreglo, 0, socios.length);
         nuevoArreglo[nuevoArreglo.length - 1] = new Socio(nombreSocio,idSocio);
@@ -65,7 +58,7 @@ public class Biblioteca {
         }
     }
 
-    public static void altaAutor(String nombreAutor, String nacionalidad){
+    public  void altaAutor(String nombreAutor, String nacionalidad){
         Autor[] nuevoArreglo = new Autor[autores.length + 1];
         System.arraycopy(autores, 0, nuevoArreglo, 0, autores.length);
         nuevoArreglo[nuevoArreglo.length - 1] = new Autor(nombreAutor,nacionalidad);
@@ -80,10 +73,9 @@ public class Biblioteca {
     }
 
     public void altaLibro(String titulo,int cantidadPaginas,String nombreAutor){
-        Libro libro= new Libro(titulo,cantidadPaginas);
-        altaEjemplar(libro);
         Autor autor= getAutor(nombreAutor);
-        autor.agregarLibro(libro);
+        Libro libro= new Libro(titulo,cantidadPaginas,autor);
+        altaEjemplar(libro);
     }
 
     public void altaEjemplar(Libro nuevoLibro){
@@ -130,7 +122,10 @@ public class Biblioteca {
 
     public void mostrarDescripcion(String titulo){
         Ejemplar ejemplar=buscarEjemplar(titulo);
-        System.out.println("El libro " + ejemplar.getLibro().getTitulo() + "creado por el autor " );
+        Libro libro=ejemplar.getLibro();
+        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
+                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
+                            ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
     }
 
 }
