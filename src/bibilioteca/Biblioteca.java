@@ -7,12 +7,10 @@ import java.util.Objects;
 
 public class Biblioteca {
     private static Socio[] socios;
-    private static Autor[] autores;
     private static Ejemplar[] ejemplares;
 
     public Biblioteca(){
         socios= new Socio[0];
-        autores= new Autor[0];
         ejemplares= new Ejemplar[0];
 
     }
@@ -21,20 +19,8 @@ public class Biblioteca {
         return socios;
     }
 
-    public Autor[] getAutores() {
-        return autores;
-    }
-
     public Ejemplar[] getEjemplares(){ return ejemplares;}
 
-    public Autor getAutor(String nombreAutor){
-        for (Autor autor: getAutores()){
-            if (Objects.equals(autor.getnombreAutor(),nombreAutor)){
-                return  autor;
-            }
-        }
-        return null;
-    }
 
 
     public  void altaSocio(String nombreSocio, int idSocio){
@@ -58,23 +44,8 @@ public class Biblioteca {
         }
     }
 
-    public  void altaAutor(String nombreAutor, String nacionalidad){
-        Autor[] nuevoArreglo = new Autor[autores.length + 1];
-        System.arraycopy(autores, 0, nuevoArreglo, 0, autores.length);
-        nuevoArreglo[nuevoArreglo.length - 1] = new Autor(nombreAutor,nacionalidad);
-        autores = nuevoArreglo;
-    }
-
-    public void mostrarAutores(){
-        System.out.println("-----Los autores cargados son:---------");
-        for (Autor autor:autores){
-            System.out.println("Nombre y apellido: " + autor.getnombreAutor() + " Nacionalidad del autor: " + autor.getNacionalidad() );
-        }
-    }
-
     public void altaLibro(String titulo,int cantidadPaginas,String nombreAutor){
-        Autor autor= getAutor(nombreAutor);
-        Libro libro= new Libro(titulo,cantidadPaginas,autor);
+        Libro libro= new Libro(titulo,cantidadPaginas,new Autor(nombreAutor));
         altaEjemplar(libro);
     }
 

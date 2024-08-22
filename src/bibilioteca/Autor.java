@@ -6,15 +6,10 @@ import java.util.Objects;
 
 public class Autor {
     private final String nombreAutor;
-    private final String nacionalidad;
 
-    public Autor(String autor,String nacionalidad) {
+    public Autor(String autor) {
         this.nombreAutor = autor;
-        this.nacionalidad = nacionalidad;
-    }
 
-    public String getNacionalidad() {
-        return this.nacionalidad;
     }
 
     public String getnombreAutor() {
