@@ -16,7 +16,6 @@ public class Ejemplar {
         this.disponible=false;
     }
 
-
     public Libro getLibro() {
         return this.libro;
     }

@@ -1,8 +1,5 @@
 package bibilioteca;
 
-import com.sun.org.apache.xalan.internal.xsltc.compiler.util.ObjectType;
-
-import java.util.ArrayList;
 import java.util.Objects;
 
 public class Biblioteca {
@@ -100,5 +97,4 @@ public class Biblioteca {
                             + " tiene " + libro.getCantidadPaginas() + " paginas, quedan " +
                             ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
     }
-
 }

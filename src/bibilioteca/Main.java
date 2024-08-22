@@ -16,7 +16,7 @@ public class Main {
                             "3 - Ingresar un nuevo Prestamo \n" +
                             "4 - Ingresar una Devolucion\n" +
                             "5 - Mostrar informacion del libro\n" +
-                            " Seleccione una opcion: ");
+                            " \n Seleccione una opcion: ");
         return scanner.nextInt();
     }
 

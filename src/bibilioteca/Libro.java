@@ -1,8 +1,5 @@
 package bibilioteca;
 
-import java.util.ArrayList;
-import java.util.Objects;
-
 public class Libro {
     private  final String titulo;
     private final int cantidadPaginas;
