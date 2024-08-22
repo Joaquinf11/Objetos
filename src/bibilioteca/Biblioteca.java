@@ -82,7 +82,7 @@ public class Biblioteca {
         if (ejemplar != null && ejemplar.isDisponible()) {
             Socio socio = buscarSocio(nombreSocio);
             socio.agregarPrestamo(new Prestamo(idPrestamo,ejemplar));
-            ejemplar.restarEjemplar();
+
             socio.mostrarPrestamos();
         }
         else {
