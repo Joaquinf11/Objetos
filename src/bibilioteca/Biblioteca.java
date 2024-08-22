@@ -38,36 +38,38 @@ public class Biblioteca {
         }
         return null;
     }
+
     public void mostrarSocios(){
         for (Socio socio:socios){
             System.out.println(socio.getNombreSocio());
         }
     }
 
-    public void altaLibro(String titulo,int cantidadPaginas,String nombreAutor){
-        Libro libro= new Libro(titulo,cantidadPaginas,new Autor(nombreAutor));
-        altaEjemplar(libro);
-    }
-
-    public void altaEjemplar(Libro nuevoLibro){
+    public void altaEjemplar(String nombreAutor,String titulo, int cantPaginas){
+        Autor autor = new Autor(nombreAutor);
+        Libro libro= new Libro(titulo,cantPaginas,autor);
         Ejemplar[] nuevoArreglo = new Ejemplar[ejemplares.length + 1];
         System.arraycopy(ejemplares, 0, nuevoArreglo, 0, ejemplares.length);
-        nuevoArreglo[nuevoArreglo.length - 1] = new Ejemplar(nuevoLibro);
+        nuevoArreglo[nuevoArreglo.length - 1] = new Ejemplar(libro);
         ejemplares = nuevoArreglo;
     }
 
-    public void agregarEjemplar(String titulo) {
-        Ejemplar ejemplar=buscarEjemplar(titulo);
+    public void agregarEjemplar(String nombreAutor) {
+        Ejemplar ejemplar=buscarEjemplar(nombreAutor);
         ejemplar.sumarEjemplar();
     }
 
-    public Ejemplar buscarEjemplar(String titulo){
+    public Ejemplar buscarEjemplar(String nombreAutor){
         for (Ejemplar ejemplar: ejemplares){
-            if (Objects.equals(ejemplar.getLibro().getTitulo(), titulo)) {
+            if (Objects.equals(ejemplar.getLibro().getAutor().getnombreAutor(),nombreAutor)) {
                 return  ejemplar;
             }
         }
         return null;
+    }
+
+    public boolean hasEjemplar(String nombreAutor){
+        return buscarEjemplar(nombreAutor) != null;
     }
 
     public void mostrarEjemplares(){
@@ -78,8 +80,8 @@ public class Biblioteca {
         }
     }
 
-    public void cargarPrestamo(int idPrestamo,String nombreSocio,String titulo){
-        Ejemplar ejemplar= buscarEjemplar(titulo);
+    public void cargarPrestamo(int idPrestamo,String nombreSocio,String nombreAutor){
+        Ejemplar ejemplar= buscarEjemplar(nombreAutor);
         if (ejemplar != null && ejemplar.isDisponible()) {
             Socio socio = buscarSocio(nombreSocio);
             socio.agregarPrestamo(new Prestamo(idPrestamo,ejemplar));
@@ -94,8 +96,8 @@ public class Biblioteca {
     public void mostrarDescripcion(String titulo){
         Ejemplar ejemplar=buscarEjemplar(titulo);
         Libro libro=ejemplar.getLibro();
-        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
-                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
+        System.out.println("El libro " + libro.getTitulo() + " creado por el autor " + libro.getAutor().getnombreAutor()
+                            + " tiene " + libro.getCantidadPaginas() + " paginas, quedan " +
                             ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
     }
 
