@@ -11,7 +11,9 @@ public class Prestamo {
         this.idPrestamo = idPrestamo;
         this.fechaPrestamo = LocalDateTime.now().toString();
         this.fechaDevolucion = LocalDateTime.now().plusMonths(1).toString();
-        this.ejemplar= ejemplar;
+        this.ejemplar=ejemplar;
+
+        ejemplar.setDisponible(false);
     }
 
     public int getIdPrestamo() {
@@ -26,7 +28,9 @@ public class Prestamo {
         return fechaPrestamo;
     }
 
+
+
     public Ejemplar getEjemplar() {
-        return this.ejemplar;
+        return ejemplar;
     }
 }

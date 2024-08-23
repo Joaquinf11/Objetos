@@ -74,7 +74,7 @@ public class Main {
                 String titulo= sc.nextLine();
                 sc.nextLine();
 
-              //  biblioteca.cargarPrestamo(idPrestamo,nombreSocio,titulo);
+                biblioteca.cargarPrestamo(idPrestamo,nombreSocio,titulo);
             }
             if (accion == 6){
                 System.out.print("Ingrese el numero de Prestamo: ");

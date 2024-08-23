@@ -89,25 +89,25 @@ public class Biblioteca {
         }
     }
 
-//    public void cargarPrestamo(int idPrestamo,String nombreSocio,String titulo){
-//        Ejemplar ejemplar= buscarEjemplar(titulo);
-//        if (ejemplar != null && ejemplar.isDisponible()) {
-//            Socio socio = buscarSocio(nombreSocio);
-//            socio.agregarPrestamo(new Prestamo(idPrestamo,ejemplar));
-//            ejemplar.restarEjemplar();
-//            socio.mostrarPrestamos();
-//        }
-//        else {
-//            System.out.println("No se pudo cargar prestamo");
-//        }
-//    }
+    public void cargarPrestamo(int idPrestamo,String nombreSocio,String titulo){
+        Libro libro= Autor.buscarLibro(autores,titulo);
 
-//    public void mostrarDescripcion(String titulo){
-//        Ejemplar ejemplar=buscarEjemplar(titulo);
-//        Libro libro=ejemplar.getLibro();
-//        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
-//                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
-//                            ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
-//    }
+        Ejemplar ejemplar= libro.getDisponible();
+
+        Socio socio = buscarSocio(nombreSocio);
+        socio.agregarPrestamo(new Prestamo(idPrestamo,ejemplar));
+        socio.mostrarPrestamos();
+        if (libro == null || ejemplar == null || socio== null){
+            System.out.println("No se pudo cargar prestamo");
+        }
+    }
+
+    public void mostrarDescripcion(String titulo){
+        Libro libro= Autor.buscarLibro(autores,titulo);
+        Ejemplar ejemplar=buscarEjemplar(titulo);
+        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
+                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
+                            ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
+    }
 
 }
