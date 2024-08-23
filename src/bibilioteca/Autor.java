@@ -25,13 +25,8 @@ public class Autor {
 
 
 
-    public Libro getLibros(String titulo){
-        for (Libro libro: libros){
-            if(Objects.equals(libro.getTitulo(), titulo)){
-                return libro;
-            }
-        }
-        return null;
+    public Libro[] getLibros(){
+        return this.libros;
     }
 
 
@@ -42,7 +37,12 @@ public class Autor {
         libros = nuevoArreglo;
     }
 
-
+    public static Libro buscarLibro(Autor[] autores, String titulo){
+        for (Autor autor : autores ){
+            return Libro.buscarLibro(autor.getLibros(),titulo);
+        }
+        return null;
+    }
 
     public void mostrarLibros(){
         System.out.print("[ ");
