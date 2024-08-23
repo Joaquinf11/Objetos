@@ -47,7 +47,7 @@ public class Socio {
     public void mostrarPrestamos(){
         for (Prestamo prestamo : prestamos){
             System.out.println("Numero de prestamo: " + prestamo.getIdPrestamo() + " Fecha de prestamo: " + prestamo.getFechaPrestamo() +
-                                " Fecha de devolucion: " + prestamo.getFechaDevolucion() + "Libro prestado: " + prestamo.getEjemplar().getLibro().getTitulo());
+                                " Fecha de devolucion: " + prestamo.getFechaDevolucion() + "Libro prestado: " + prestamo.getLibro().getTitulo());
         }
     }
 }
