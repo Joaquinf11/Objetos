@@ -39,14 +39,26 @@ public class Libro {
         ejemplares = nuevoArreglo;
     }
 
-    public int ejemplaresDisponibles(Libro libro){
+    public int ejemplaresDisponibles(){
         int contador=0;
         for(Ejemplar ejemplar: ejemplares){
-            if (ejemplar.getLibro().equals(libro) && ejemplar.isDisponible()){
+            if (ejemplar.isDisponible()){
                 contador++;
             }
         }
         return contador;
     }
 
+    public Ejemplar getDisponible(){
+        int contador=0;
+        for (Ejemplar ejemplar : ejemplares){
+            if(ejemplar.isDisponible() && contador > 1){
+                return ejemplar;
+            }
+            else {
+                contador++;
+            }
+        }
+        return  null;
+    }
 }
