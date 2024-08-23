@@ -8,13 +8,11 @@ import java.util.Objects;
 public class Biblioteca {
     private static Socio[] socios;
     private static Autor[] autores;
-    private static Ejemplar[] ejemplares;
+
 
     public Biblioteca(){
         socios= new Socio[0];
         autores= new Autor[0];
-        ejemplares= new Ejemplar[0];
-
     }
 
     public Socio[] getSocios() {
@@ -25,7 +23,7 @@ public class Biblioteca {
         return autores;
     }
 
-    public Ejemplar[] getEjemplares(){ return ejemplares;}
+
 
     public Autor getAutor(String nombreAutor){
         for (Autor autor: getAutores()){
@@ -52,6 +50,7 @@ public class Biblioteca {
         }
         return null;
     }
+
     public void mostrarSocios(){
         for (Socio socio:socios){
             System.out.println(socio.getNombreSocio());
@@ -72,60 +71,43 @@ public class Biblioteca {
         }
     }
 
-    public void altaLibro(String titulo,int cantidadPaginas,String nombreAutor){
-        Autor autor= getAutor(nombreAutor);
-        Libro libro= new Libro(titulo,cantidadPaginas,autor);
-        altaEjemplar(libro);
-    }
-
-    public void altaEjemplar(Libro nuevoLibro){
-        Ejemplar[] nuevoArreglo = new Ejemplar[ejemplares.length + 1];
-        System.arraycopy(ejemplares, 0, nuevoArreglo, 0, ejemplares.length);
-        nuevoArreglo[nuevoArreglo.length - 1] = new Ejemplar(nuevoLibro);
-        ejemplares = nuevoArreglo;
-    }
-
-    public void agregarEjemplar(String titulo) {
-        Ejemplar ejemplar=buscarEjemplar(titulo);
-        ejemplar.sumarEjemplar();
-    }
-
-    public Ejemplar buscarEjemplar(String titulo){
-        for (Ejemplar ejemplar: ejemplares){
-            if (Objects.equals(ejemplar.getLibro().getTitulo(), titulo)) {
-                return  ejemplar;
-            }
+    public void altaLibro(String titulo,int cantidadPaginas,String nombreAutor) {
+        Libro libro = new Libro(titulo, cantidadPaginas);
+        Autor autor = getAutor(nombreAutor);
+        if (autor != null) {
+            autor.agregarLibro(libro);
         }
-        return null;
-    }
-
-    public void mostrarEjemplares(){
-        for (Ejemplar ejemplar:ejemplares){
-            Libro libro=ejemplar.getLibro( );
-            System.out.println("Nombre del libro: " + libro.getTitulo() + " Ejemplares disponibles:" + ejemplar.getEjemplares_disponibles() +
-                                " Ejemplares prestados:" + ejemplar.getEjemplares_prestados());
+        else{
+            System.out.println("Debe dar de alta el autor");
         }
     }
 
-    public void cargarPrestamo(int idPrestamo,String nombreSocio,String titulo){
-        Ejemplar ejemplar= buscarEjemplar(titulo);
-        if (ejemplar != null && ejemplar.isDisponible()) {
-            Socio socio = buscarSocio(nombreSocio);
-            socio.agregarPrestamo(new Prestamo(idPrestamo,ejemplar));
-            ejemplar.restarEjemplar();
-            socio.mostrarPrestamos();
-        }
-        else {
-            System.out.println("No se pudo cargar prestamo");
+    public void altaEjemplar(String titulo) {
+        Libro libro= Autor.buscarLibro(autores,titulo);
+        if (libro != null) {
+            libro.agregarEjemplar(libro);
         }
     }
 
-    public void mostrarDescripcion(String titulo){
-        Ejemplar ejemplar=buscarEjemplar(titulo);
-        Libro libro=ejemplar.getLibro();
-        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
-                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
-                            ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
-    }
+//    public void cargarPrestamo(int idPrestamo,String nombreSocio,String titulo){
+//        Ejemplar ejemplar= buscarEjemplar(titulo);
+//        if (ejemplar != null && ejemplar.isDisponible()) {
+//            Socio socio = buscarSocio(nombreSocio);
+//            socio.agregarPrestamo(new Prestamo(idPrestamo,ejemplar));
+//            ejemplar.restarEjemplar();
+//            socio.mostrarPrestamos();
+//        }
+//        else {
+//            System.out.println("No se pudo cargar prestamo");
+//        }
+//    }
+
+//    public void mostrarDescripcion(String titulo){
+//        Ejemplar ejemplar=buscarEjemplar(titulo);
+//        Libro libro=ejemplar.getLibro();
+//        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
+//                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
+//                            ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
+//    }
 
 }
