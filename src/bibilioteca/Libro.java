@@ -6,12 +6,12 @@ import java.util.Objects;
 public class Libro {
     private  final String titulo;
     private final int cantidadPaginas;
-    private final Autor autor;
+    private Ejemplar[] ejemplares;
 
-    public Libro(String titulo, int cantidadPaginas, Autor autor) {
+    public Libro(String titulo, int cantidadPaginas) {
         this.titulo = titulo;
         this.cantidadPaginas = cantidadPaginas;
-        this.autor=autor;
+        this.ejemplares= new Ejemplar[0];
     }
 
     public String getTitulo() {
@@ -22,7 +22,21 @@ public class Libro {
         return cantidadPaginas;
     }
 
-    public Autor getAutor() {
-        return this.autor;
+    public static Libro buscarLibro(Libro[] libros, String titulo){
+        for( Libro libro : libros){
+            if (libro.titulo.equals(titulo)){
+                return libro;
+            }
+        }
+        return null;
     }
+
+    public void agregarEjemplar(Libro libro){
+        Ejemplar[] nuevoArreglo = new Ejemplar[ejemplares.length + 1];
+        System.arraycopy(ejemplares, 0, nuevoArreglo, 0, ejemplares.length);
+        nuevoArreglo[nuevoArreglo.length - 1] = new Ejemplar(libro);
+        ejemplares = nuevoArreglo;
+    }
+
+
 }
