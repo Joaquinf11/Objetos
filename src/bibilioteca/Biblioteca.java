@@ -19,7 +19,7 @@ public class Biblioteca {
         return socios;
     }
 
-    public Autor[] getAutores() {
+    public static Autor[] getAutores() {
         return autores;
     }
 
@@ -102,12 +102,12 @@ public class Biblioteca {
         }
     }
 
-    public void mostrarDescripcion(String titulo){
-        Libro libro= Autor.buscarLibro(autores,titulo);
-        Ejemplar ejemplar=buscarEjemplar(titulo);
-        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
-                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
-                            ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
-    }
+//    public void mostrarDescripcion(String titulo){
+//        Libro libro= Autor.buscarLibro(autores,titulo);
+//        Ejemplar ejemplar=buscarEjemplar(titulo);
+//        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
+//                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
+//                            ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
+//    }
 
 }

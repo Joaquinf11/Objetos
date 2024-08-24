@@ -17,7 +17,8 @@ public class Main {
                             "4 - Agregar un ejemplar\n" +
                             "5 - Ingresar un nuevo Prestamo \n" +
                             "6 - Ingresar una Devolucion\n" +
-                            "7 - Mostrar informacion del libro\n"
+                            "7 - Mostrar informacion del libro\n" +
+                            "8 - Comparar cantidad de paginas\n"
                             );
         return scanner.nextInt();
     }
@@ -87,6 +88,16 @@ public class Main {
                 String titulo=sc.nextLine();
                 sc.nextLine();
               // biblioteca.mostrarDescripcion();
+            }
+            if (accion==8){
+                System.out.print("Ingrese el titulo del libro: ");
+                String titulo_1=sc.nextLine();
+                sc.nextLine();
+                System.out.print("Ingrese el titulo del libro: ");
+                String titulo_2=sc.nextLine();
+                sc.nextLine();
+                Test test= new Test(titulo_1,titulo_2);
+                test.mostrarTest();
             }
             accion=mostrarMenu();
         }
