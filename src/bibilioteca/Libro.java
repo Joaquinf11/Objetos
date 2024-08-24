@@ -1,8 +1,5 @@
 package bibilioteca;
 
-import java.util.ArrayList;
-import java.util.Formattable;
-import java.util.Objects;
 
 public class Libro {
     private  final String titulo;
@@ -39,15 +36,6 @@ public class Libro {
         ejemplares = nuevoArreglo;
     }
 
-    public int ejemplaresDisponibles(){
-        int contador=0;
-        for(Ejemplar ejemplar: ejemplares){
-            if (ejemplar.isDisponible()){
-                contador++;
-            }
-        }
-        return contador;
-    }
 
     public Ejemplar getDisponible(){
         int contador=0;
@@ -60,5 +48,24 @@ public class Libro {
             }
         }
         return  null;
+    }
+
+    public int ejemplaresDisponibles(){
+        int contador=0;
+        for(Ejemplar ejemplar: ejemplares){
+            if (ejemplar.isDisponible()){
+                contador++;
+            }
+        }
+        return contador;
+    }
+    public int ejemplaresPrestados(){
+        int contador=0;
+        for(Ejemplar ejemplar: ejemplares){
+            if (!ejemplar.isDisponible()){
+                contador++;
+            }
+        }
+        return contador;
     }
 }

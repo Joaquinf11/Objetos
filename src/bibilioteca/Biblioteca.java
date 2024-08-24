@@ -96,18 +96,24 @@ public class Biblioteca {
 
         Socio socio = buscarSocio(nombreSocio);
         socio.agregarPrestamo(new Prestamo(idPrestamo,ejemplar));
-        socio.mostrarPrestamos();
         if (libro == null || ejemplar == null || socio== null){
             System.out.println("No se pudo cargar prestamo");
         }
     }
 
-//    public void mostrarDescripcion(String titulo){
-//        Libro libro= Autor.buscarLibro(autores,titulo);
-//        Ejemplar ejemplar=buscarEjemplar(titulo);
-//        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + libro.getAutor().getnombreAutor()
-//                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
-//                            ejemplar.getEjemplares_disponibles() + " y se prestaron " + ejemplar.getEjemplares_prestados());
-//    }
+    public void cargarDevolucion(int idPrestamo,String nombreSocio){
+        Socio socio=buscarSocio(nombreSocio);
+        Prestamo prestamo=Prestamo.buscarPrestamo(socio.getPrestamos(),idPrestamo);
+        prestamo.altaDevolucion();
+    }
+
+
+    public void mostrarDescripcion(String titulo){
+        Autor autor= Autor.buscarAutorPorLibro(autores,titulo);
+        Libro libro= Autor.buscarLibro(autores,titulo);
+        System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + autor.getnombreAutor()
+                            + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
+                            libro.ejemplaresDisponibles() + " y se prestaron " + libro.ejemplaresPrestados());
+    }
 
 }

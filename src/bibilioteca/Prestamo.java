@@ -33,4 +33,18 @@ public class Prestamo {
     public Ejemplar getEjemplar() {
         return ejemplar;
     }
+
+    public static Prestamo buscarPrestamo(Prestamo[] prestamos, int idPrestamo){
+        for (Prestamo prestamo : prestamos){
+            if (prestamo.getIdPrestamo() == idPrestamo){
+                return prestamo;
+            }
+        }
+        return null;
+    }
+
+    public void altaDevolucion(){
+        Ejemplar ejemplar= getEjemplar();
+        ejemplar.setDisponible(true);
+    }
 }

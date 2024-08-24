@@ -81,7 +81,9 @@ public class Main {
                 System.out.print("Ingrese el numero de Prestamo: ");
                 int idPrestamo= sc.nextInt();
                 sc.nextLine();
-                System.out.println("Todavia no esta hecho");
+                String nombreSocio= sc.nextLine();
+                sc.nextLine();
+                biblioteca.cargarDevolucion(idPrestamo,nombreSocio);
             }
             if (accion==7){
                 System.out.print("Ingrese el titulo del libro: ");

@@ -23,8 +23,6 @@ public class Autor {
         return this.nombreAutor;
     }
 
-
-
     public Libro[] getLibros(){
         return this.libros;
     }
@@ -44,12 +42,12 @@ public class Autor {
         return null;
     }
 
-    public void mostrarLibros(){
-        System.out.print("[ ");
-        for(Libro libro : libros){
-            System.out.print(libro.getTitulo() + ", ");
+    public static Autor buscarAutorPorLibro(Autor[] autores, String titulo){
+        for (Autor autor: autores){
+            if (buscarLibro(autores,titulo) != null){
+                return  autor;
+            }
         }
-        System.out.println(" ]");
+        return null;
     }
-
 }
