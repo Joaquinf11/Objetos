@@ -1,7 +1,4 @@
-import ar.unlu.edu.poo.joaco.Lista;
-import ar.unlu.edu.poo.joaco.ListaDoble;
-import ar.unlu.edu.poo.joaco.Pila;
-import ar.unlu.edu.poo.joaco.Cola;
+package ar.unlu.edu.poo.joaco;
 
 
 public  class Main {

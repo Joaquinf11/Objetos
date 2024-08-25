@@ -89,7 +89,7 @@ public class Main {
                 System.out.print("Ingrese el titulo del libro: ");
                 String titulo=sc.nextLine();
                 sc.nextLine();
-              // biblioteca.mostrarDescripcion();
+               biblioteca.mostrarDescripcion(titulo);
             }
             if (accion==8){
                 System.out.print("Ingrese el titulo del libro: ");
