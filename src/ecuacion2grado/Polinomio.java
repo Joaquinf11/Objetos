@@ -15,18 +15,32 @@ public class Polinomio {
       double determinante= calcularDeterminante();
       double raiz_1= (-b + determinante) / (2*a);
       double raiz_2= (-b - determinante) / (2*a);
-      if (raiz_1 == raiz_2){
-          double[] resultado= new double[1];
+      double[] resultado;
+      if (determinante > 0){
+          resultado=new double[2];
           resultado[0]= raiz_1;
-          return resultado;
+          resultado[1]= raiz_2;
       }
-      double[] resultado= new double[2];
-      resultado[0]= raiz_1;
-      resultado[1]= raiz_2;
+      if(determinante == 0){
+          resultado= new double[1];
+          resultado[0]= raiz_1;
+      }
+      else{
+          return null;
+      }
       return resultado;
     }
 
     public  double calcularDeterminante(){
         return Math.sqrt(Math.pow(b,2) - 4 * a * c );
     }
+
+    public static void mostrarRaices(double[] raices){
+        System.out.print("[");
+        for (double raiz : raices){
+            System.out.print(raiz + "\t");
+        }
+        System.out.println("]");
+    }
 }
+
