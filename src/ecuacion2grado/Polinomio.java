@@ -21,7 +21,7 @@ public class Polinomio {
           resultado[0]= raiz_1;
           resultado[1]= raiz_2;
       }
-      if(determinante == 0){
+      else if(determinante == 0){
           resultado= new double[1];
           resultado[0]= raiz_1;
       }
