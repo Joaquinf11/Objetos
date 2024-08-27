@@ -6,11 +6,11 @@ import java.time.LocalDate;
 public class Tarea {
     private String descripcion;
     private boolean estado;
-    private String prioridad;
+    private int prioridad;
     private final LocalDate fechaLimite;
 
-    public Tarea(String descripcion, boolean estado, LocalDate fechaLimite) {
-        this.estado = estado;
+    public Tarea(String descripcion, int prioridad, LocalDate fechaLimite) {
+        this.prioridad = prioridad;
         this.descripcion = descripcion;
         this.fechaLimite = fechaLimite;
     }
@@ -31,11 +31,11 @@ public class Tarea {
         this.estado = estado;
     }
 
-    public String getPrioridad() {
+    public int getPrioridad() {
         return this.prioridad;
     }
 
-    public void setPrioridad(String prioridad) {
+    public void setPrioridad(int prioridad) {
         this.prioridad = prioridad;
     }
 
@@ -44,19 +44,24 @@ public class Tarea {
     }
 
     public boolean isVencida(){
-        return LocalDate.now().isAfter(getFechaLimite());
+        return LocalDate.now().isAfter(getFechaLimite()) && !isCompleta();
     }
 
     public boolean isCompleta(){
         return this.estado;
     }
 
-    public void mostrarTarea(){
-        if(isCompleta()){
-            System.out.println("(Vencida)" + getDescripcion());
+    public String mostrarTarea(){
+        String resultado;
+        if(isVencida()){
+            resultado=("(Vencida)" + getDescripcion());
+        }
+        else if(isCompleta()){
+            resultado="(Completada)" + getDescripcion();
         }
         else{
-            System.out.println(getDescripcion());
+            resultado=(getDescripcion());
         }
+        return resultado;
     }
 }
