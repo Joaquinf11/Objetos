@@ -1,29 +1,33 @@
 package Fecha;
 
 public class Anio {
-    private int anio;
+    private String anio;
 
-    public Anio(int anio) {
+    public Anio(String anio) {
         this.anio = anio;
     }
 
-    public int getAnio() {
+    public String getAnio() {
         return anio;
     }
 
-    public void setAnio(int anio) {
+    public void setAnio(String anio) {
         this.anio = anio;
     }
-    public boolean isEqual(int anio){
-        return getAnio() == anio;
+
+    public int anioInt(String anio){
+        return Integer.parseInt(anio);
+    }
+    public boolean isEqual(String anio){
+        return anioInt(getAnio()) == anioInt(anio);
     }
 
-    public boolean isMayor(int anio){
-        return  getAnio() > anio;
+    public boolean isMayor(String anio){
+        return  anioInt(getAnio()) > anioInt(anio);
     }
 
-    public boolean isMenor(int anio){
-        return  getAnio() < anio;
+    public boolean isMenor(String anio){
+        return  anioInt(getAnio()) < anioInt(anio);
     }
 
 

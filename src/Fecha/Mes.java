@@ -1,28 +1,32 @@
 package Fecha;
 
 public class Mes {
-    private int mes;
+    private String mes;
 
-    public Mes(int mes) {
+    public Mes(String mes) {
         this.mes = mes;
     }
 
-    public int getMes() {
+    public String getMes() {
         return mes;
     }
 
-    public void setMes(int mes) {
+    public void setMes(String mes) {
         this.mes = mes;
     }
+
+    public int mesInt(){
+        return Integer.parseInt(getMes());
+    }
     public boolean isEqual(int mes){
-        return getMes() == mes;
+        return mesInt() == mes;
     }
 
     public boolean isMayor(int mes){
-        return  getMes() > mes;
+        return  mesInt() > mes;
     }
 
     public boolean isMenor(int mes){
-        return  getMes() < mes;
+        return  mesInt() < mes;
     }
 }

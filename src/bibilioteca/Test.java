@@ -1,12 +1,12 @@
 package bibilioteca;
 
 public class Test {
-    private final  String titulo_1;
-    private final String titulo_2;
+    private final  Libro libro_1;
+    private final Libro libro_2;
 
-    public Test(String titulo_1, String titulo_2) {
-        this.titulo_1 = titulo_1;
-        this.titulo_2 = titulo_2;
+    public Test(Libro libro_1, Libro libro_2) {
+        this.libro_1 = libro_1;
+        this.libro_2 = libro_2;
     }
 
     public String getTitulo_1() {
