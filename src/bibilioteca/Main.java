@@ -91,16 +91,16 @@ public class Main {
                 sc.nextLine();
                biblioteca.mostrarDescripcion(titulo);
             }
-            if (accion==8){
-                System.out.print("Ingrese el titulo del libro: ");
-                String titulo_1=sc.nextLine();
-                sc.nextLine();
-                System.out.print("Ingrese el titulo del libro: ");
-                String titulo_2=sc.nextLine();
-                sc.nextLine();
-                Test test= new Test(titulo_1,titulo_2);
-                test.mostrarTest();
-            }
+//            if (accion==8){
+//                System.out.print("Ingrese el titulo del libro: ");
+//                String titulo_1=sc.nextLine();
+//                sc.nextLine();
+//                System.out.print("Ingrese el titulo del libro: ");
+//                String titulo_2=sc.nextLine();
+//                sc.nextLine();
+//                Test test= new Test(titulo_1,titulo_2);
+//                test.mostrarTest();
+//            }
             accion=mostrarMenu();
         }
     }
