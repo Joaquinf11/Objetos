@@ -1,6 +1,7 @@
 package listaTareas;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 public class Tarea {
@@ -8,11 +9,19 @@ public class Tarea {
     private boolean estado;
     private int prioridad;
     private final LocalDate fechaLimite;
+    private final LocalDate fechaRecordatorio;
 
-    public Tarea(String descripcion, int prioridad, LocalDate fechaLimite) {
-        this.prioridad = prioridad;
+    public Tarea(String descripcion, LocalDate fechaLimite,LocalDate fechaRecordatorio) {
         this.descripcion = descripcion;
         this.fechaLimite = fechaLimite;
+        this.fechaRecordatorio= fechaRecordatorio;
+    }
+
+    public Tarea(String descripcion,String fechaLimite,String fechaRecordatorio){
+        this.descripcion=descripcion;
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        this.fechaLimite= LocalDate.parse(fechaLimite,formatter);
+        this.fechaRecordatorio= LocalDate.parse(fechaRecordatorio,formatter);
     }
 
     public String getDescripcion() {
@@ -43,6 +52,10 @@ public class Tarea {
         return this.fechaLimite;
     }
 
+    public LocalDate getFechaRecordatorio() {
+        return fechaRecordatorio;
+    }
+
     public boolean isVencida(){
         return LocalDate.now().isAfter(getFechaLimite()) && !isCompleta();
     }
@@ -51,9 +64,20 @@ public class Tarea {
         return this.estado;
     }
 
+    public boolean estaPorVencer() {
+        if (!isVencida()) {
+            return LocalDate.now().isAfter(getFechaRecordatorio());
+        }
+        else{
+            return false;
+        }
+    }
     public String mostrarTarea(){
         String resultado;
-        if(isVencida()){
+        if (estaPorVencer()){
+            resultado= "(Por vencer)" + getDescripcion();
+        }
+        else if(isVencida()){
             resultado=("(Vencida)" + getDescripcion());
         }
         else if(isCompleta()){
