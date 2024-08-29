@@ -1,30 +1,38 @@
 package Fecha;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+
 public class Fecha {
-    private Dia dia;
-    private Mes mes;
-    private Anio anio;
+    private final String dia;
+    private final String mes;
+    private final String anio;
 
     public Fecha(String dia, String mes, String anio) {
-        this.dia = new Dia(dia);
-        this.mes = new Mes(mes);
-        this.anio = new Anio(anio);
+        this.dia = dia;
+        this.mes = mes;
+        this.anio =anio;
     }
 
-    public Dia getDia() {
-        return this.dia;
-    }
-
-    public Mes getMes() {
+    public String getMes() {
         return this.mes;
     }
 
-    public Anio getAnio() {
+    public String getDia() {
+        return this.dia;
+    }
+
+    public String getAnio() {
         return this.anio;
     }
 
+
+    public LocalDate toLocalDate(){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return LocalDate.parse(getDia() + getMes() + getAnio());
+    }
     public void mostrarFecha(){
-        System.out.println(getDia().getDia() + "-" + getMes().getMes() + "-" + getAnio().getAnio());
+        System.out.println(getDia() + "-" + getMes() + "-" + getAnio());
     }
     
 }
