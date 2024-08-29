@@ -59,10 +59,13 @@ public class Main {
                 biblioteca.altaLibro(titulo,cantPaginas,nombreAutor);
             }
             if (accion == 4){
+                System.out.print("Ingrese el nombre del autor: ");
+                String nombreAutor=sc.nextLine();
+                sc.nextLine();
                 System.out.print("Ingrese el titulo del libro: ");
                 String titulo=sc.nextLine();
                 sc.nextLine();
-                biblioteca.altaEjemplar(titulo);
+                biblioteca.altaEjemplar(nombreAutor,titulo);
             }
             if (accion== 5){
                 System.out.print("Ingrese el nombre del Socio: ");
@@ -71,11 +74,14 @@ public class Main {
                 System.out.print("Ingrese el numero de Prestamo: ");
                 int idPrestamo= sc.nextInt();
                 sc.nextLine();
+                System.out.print("Ingrese el nombre del autor: ");
+                String nombreAutor=sc.nextLine();
+                sc.nextLine();
                 System.out.print("Ingrese el titulo del libro: ");
                 String titulo= sc.nextLine();
                 sc.nextLine();
 
-                biblioteca.cargarPrestamo(idPrestamo,nombreSocio,titulo);
+                biblioteca.cargarPrestamo(idPrestamo,nombreSocio,nombreAutor,titulo);
             }
             if (accion == 6){
                 System.out.print("Ingrese el numero de Prestamo: ");
@@ -86,10 +92,13 @@ public class Main {
                 biblioteca.cargarDevolucion(idPrestamo,nombreSocio);
             }
             if (accion==7){
+                System.out.print("Ingrese el nombre del autor: ");
+                String nombreAutor=sc.nextLine();
+                sc.nextLine();
                 System.out.print("Ingrese el titulo del libro: ");
                 String titulo=sc.nextLine();
                 sc.nextLine();
-               biblioteca.mostrarDescripcion(titulo);
+                biblioteca.mostrarDescripcion(nombreAutor,titulo);
             }
 //            if (accion==8){
 //                System.out.print("Ingrese el titulo del libro: ");

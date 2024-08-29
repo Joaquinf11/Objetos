@@ -22,7 +22,7 @@ public class Biblioteca {
 
 
 
-    public Autor getAutor(String nombreAutor){
+    public Autor buscarAutor(String nombreAutor){
         for (Autor autor: getAutores()){
             if (Objects.equals(autor.getnombreAutor(),nombreAutor)){
                 return  autor;
@@ -70,7 +70,7 @@ public class Biblioteca {
 
     public void altaLibro(String titulo,int cantidadPaginas,String nombreAutor) {
         Libro libro = new Libro(titulo, cantidadPaginas);
-        Autor autor = getAutor(nombreAutor);
+        Autor autor = buscarAutor(nombreAutor);
         if (autor != null) {
             autor.agregarLibro(libro);
         }
@@ -79,15 +79,17 @@ public class Biblioteca {
         }
     }
 
-    public void altaEjemplar(String titulo) {
-        Libro libro= Autor.buscarLibro(autores,titulo);
+    public void altaEjemplar(String nombreAutor,String titulo) {
+        Autor autor=buscarAutor(nombreAutor);
+        Libro libro= autor.buscarLibro(titulo);
         if (libro != null) {
-            libro.agregarEjemplar(libro);
+            libro.agregarEjemplar();
         }
     }
 
-    public void cargarPrestamo(int idPrestamo,String nombreSocio,String titulo){
-        Libro libro= Autor.buscarLibro(autores,titulo);
+    public void cargarPrestamo(int idPrestamo,String nombreSocio,String nombreAutor,String titulo){
+        Autor autor= buscarAutor(nombreAutor);
+        Libro libro= autor.buscarLibro(titulo);
 
         Ejemplar ejemplar= libro.getDisponible();
 
@@ -100,14 +102,14 @@ public class Biblioteca {
 
     public void cargarDevolucion(int idPrestamo,String nombreSocio){
         Socio socio=buscarSocio(nombreSocio);
-        Prestamo prestamo=Prestamo.buscarPrestamo(socio.getPrestamos(),idPrestamo);
+        Prestamo prestamo=socio.buscarPrestamo(idPrestamo);
         prestamo.altaDevolucion();
     }
 
 
-    public void mostrarDescripcion(String titulo){
-        Autor autor= Autor.buscarAutorPorLibro(autores,titulo);
-        Libro libro= Autor.buscarLibro(autores,titulo);
+    public void mostrarDescripcion(String nombreAutor,String titulo){
+        Autor autor= buscarAutor(nombreAutor);
+        Libro libro= autor.buscarLibro(titulo);
         System.out.println("El libro " + libro.getTitulo() + "creado por el autor " + autor.getnombreAutor()
                             + " tiene " + libro.getCantidadPaginas() + " cantidad de paginas, quedan " +
                             libro.ejemplaresDisponibles() + " y se prestaron " + libro.ejemplaresPrestados());

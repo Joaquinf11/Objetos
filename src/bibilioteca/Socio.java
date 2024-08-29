@@ -15,7 +15,7 @@ public class Socio {
     }
 
     public int getIdSocio() {
-        return idSocio;
+        return this.idSocio;
     }
 
 
@@ -44,5 +44,13 @@ public class Socio {
         prestamos = nuevoArreglo;
     }
 
+    public Prestamo buscarPrestamo(int idPrestamo){
+        for (Prestamo prestamo : prestamos){
+            if (prestamo.getIdPrestamo() == idPrestamo){
+                return prestamo;
+            }
+        }
+        return null;
+    }
 
 }

@@ -29,10 +29,10 @@ public class Libro {
         return null;
     }
 
-    public void agregarEjemplar(Libro libro){
+    public void agregarEjemplar(){
         Ejemplar[] nuevoArreglo = new Ejemplar[ejemplares.length + 1];
         System.arraycopy(ejemplares, 0, nuevoArreglo, 0, ejemplares.length);
-        nuevoArreglo[nuevoArreglo.length - 1] = new Ejemplar(libro);
+        nuevoArreglo[nuevoArreglo.length - 1] = new Ejemplar();
         ejemplares = nuevoArreglo;
     }
 

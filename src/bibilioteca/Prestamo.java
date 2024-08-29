@@ -1,4 +1,5 @@
 package bibilioteca;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 public class Prestamo {
     private final int idPrestamo;
@@ -9,23 +10,23 @@ public class Prestamo {
 
     public Prestamo(int idPrestamo,Ejemplar ejemplar) {
         this.idPrestamo = idPrestamo;
-        this.fechaPrestamo = LocalDateTime.now().toString();
-        this.fechaDevolucion = LocalDateTime.now().plusMonths(1).toString();
+        this.fechaPrestamo = LocalDate.now().toString();
+        this.fechaDevolucion = LocalDate.now().plusMonths(1).toString();
         this.ejemplar=ejemplar;
 
         ejemplar.setDisponible(false);
     }
 
     public int getIdPrestamo() {
-        return idPrestamo;
+        return this.idPrestamo;
     }
 
     public String getFechaDevolucion() {
-        return fechaDevolucion;
+        return this.fechaDevolucion;
     }
 
     public String getFechaPrestamo() {
-        return fechaPrestamo;
+        return this.fechaPrestamo;
     }
 
 
@@ -34,14 +35,6 @@ public class Prestamo {
         return ejemplar;
     }
 
-    public static Prestamo buscarPrestamo(Prestamo[] prestamos, int idPrestamo){
-        for (Prestamo prestamo : prestamos){
-            if (prestamo.getIdPrestamo() == idPrestamo){
-                return prestamo;
-            }
-        }
-        return null;
-    }
 
     public void altaDevolucion(){
         Ejemplar ejemplar= getEjemplar();
