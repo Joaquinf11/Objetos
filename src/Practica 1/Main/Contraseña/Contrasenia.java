@@ -6,14 +6,23 @@ public class Contrasenia {
     private boolean segura;
 
     public Contrasenia(int longitud) {
-        RandomString random = new RandomString(longitud);
-        this.longitud = longitud;
+        if (longitud < 8){
+            this.longitud=8;
+        }
+        else {
+            this.longitud= longitud;
+        }
+        RandomString random = new RandomString(this.longitud);
         this.contrasena = random.generarStringAleatorio();
         this.segura= setSegura();
     }
 
     public String getContrasena() {
         return contrasena;
+    }
+
+    public void setContrasenia(String contrasenia){
+        this.contrasena=contrasenia;
     }
 
     public int getLongitud() {
@@ -44,6 +53,14 @@ public class Contrasenia {
         return mayusculas > 2 && minisculas > 1 && numeros >= 2;
     }
 
+    public void regenerarContrasenia(){
+        String resultado=getContrasena();
+        while(!getSegura()){
+            RandomString random = new RandomString(getLongitud());
+            resultado=random.generarStringAleatorio();
+        }
+        setContrasenia(resultado);
+    }
     public void mostrarContrasena(){
         if (getSegura()){
             System.out.println(getContrasena() + " - Fuerte");

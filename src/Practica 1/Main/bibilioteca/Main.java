@@ -10,15 +10,17 @@ public class Main {
         Scanner scanner= new Scanner(System.in);
         System.out.println("Bienvenido al programa de la Biblioteca\n");
 
-        System.out.print(   "0 - Salir\n" +
-                            "1 - Ingresar un  nuevo Socio\n" +
-                            "2 - Ingresar un nuevo Autor\n" +
-                            "3 - Ingresar un libro nuevo \n" +
-                            "4 - Agregar un ejemplar\n" +
-                            "5 - Ingresar un nuevo Prestamo \n" +
-                            "6 - Ingresar una Devolucion\n" +
-                            "7 - Mostrar informacion del libro\n" +
-                            "8 - Comparar cantidad de paginas\n"
+        System.out.print("""
+                        0 - Salir
+                        1 - Ingresar un  nuevo Socio
+                        2 - Ingresar un nuevo Autor
+                        3 - Ingresar un libro nuevo\s
+                        4 - Agregar un ejemplar
+                        5 - Ingresar un nuevo Prestamo\s
+                        6 - Ingresar una Devolucion
+                        7 - Mostrar informacion del libro
+                        8 - Comparar cantidad de paginas
+                        """
                             );
         return scanner.nextInt();
     }
