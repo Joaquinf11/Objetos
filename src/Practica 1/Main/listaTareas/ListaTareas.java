@@ -8,8 +8,21 @@ Generar un programa en Java que haga uso de la clase Tarea, y cree las siguiente
         */
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 
 public class ListaTareas {
+    private ArrayList<Tarea> lista;
+
+    public ListaTareas() {
+        this.lista = new ArrayList<Tarea>();
+    }
+
+    public void agregarTarea(Tarea tarea){
+
+    }
+
+
+
     public static void main(String[] args){
         LocalDate fecha_hoy=LocalDate.now();
         Tarea tarea_1= new Tarea("Ir al supermercado mañana",fecha_hoy.plusDays(5),fecha_hoy.plusDays(3));
