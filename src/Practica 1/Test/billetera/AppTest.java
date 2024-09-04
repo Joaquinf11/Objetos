@@ -38,11 +38,11 @@ class AppTest {
 
     @Test
     public void convertirDeMonedaOrigenADestino(){
-        Moneda destino= new Moneda("Pesos",953.50);
-        Dinero monto= new Dinero(100,"Euro",0.91);
+        Moneda destino= new Moneda("Pesos",1400);
+        Dinero monto= new Dinero(100,"Euro",0.90);
         Conversor conversor= new Conversor();
         Dinero resultado= conversor.convertir(monto,destino);
-        assertEquals(105344.59,resultado.getMonto());
+        assertEquals(155555.5555,resultado.getMonto());
 
     }
     
