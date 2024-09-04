@@ -2,7 +2,7 @@ package billetera;
 
 public class Moneda {
     private double cotizacion;
-    private String nombreMoneda;
+    private final String nombreMoneda;
 
     public Moneda(String nombreMoneda, double cotizacionMoneda) {
         this.cotizacion = cotizacionMoneda;
@@ -15,5 +15,9 @@ public class Moneda {
 
     public String getNombreMoneda() {
         return nombreMoneda;
+    }
+
+    public void setCotizacion(double cotizacion) {
+        this.cotizacion = cotizacion;
     }
 }
