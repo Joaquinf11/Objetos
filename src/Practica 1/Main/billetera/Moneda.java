@@ -8,4 +8,12 @@ public class Moneda {
         this.cotizacion = cotizacionMoneda;
         this.nombreMoneda = nombreMoneda;
     }
+
+    public double getCotizacion() {
+        return cotizacion;
+    }
+
+    public String getNombreMoneda() {
+        return nombreMoneda;
+    }
 }

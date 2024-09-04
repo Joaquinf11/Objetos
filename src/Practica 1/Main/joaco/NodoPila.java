@@ -1,4 +1,4 @@
-package ar.unlu.edu.poo.joaco;
+package joaco;
 
 public class NodoPila {
     private NodoPila siguiente;

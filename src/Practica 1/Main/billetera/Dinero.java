@@ -8,4 +8,12 @@ public class Dinero {
         this.monto = monto;
         this.moneda = new Moneda(nombreMoneda,cotizacionMoneda);
     }
+
+    public double getMonto() {
+        return monto;
+    }
+
+    public Moneda getMoneda() {
+        return moneda;
+    }
 }

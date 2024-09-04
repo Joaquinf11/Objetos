@@ -1,4 +1,4 @@
-package ar.unlu.edu.poo.joaco;
+package joaco;
 
 import java.util.Scanner;
 
