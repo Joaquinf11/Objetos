@@ -9,12 +9,12 @@ public class Conversor {
         this.monedaReferencia= new Moneda("Dolar",1);
     }
 
-    public Dinero convertir(Dinero monto,Moneda destino){
+    public static Dinero convertir(Dinero monto,Moneda destino){
         Moneda origen= monto.getMoneda();
         if (!Objects.equals(origen,destino)){
-            double origenEnDolares= monto.getMonto() / origen.getCotizacion()  ;
-            double montoDestino= origenEnDolares * destino.getCotizacion();
-            return new Dinero(montoDestino,destino.getNombreMoneda(),destino.getCotizacion());
+            double origenEnDolares= monto.getMonto() * origen.getCotizacion()  ;
+            double montoDestino= origenEnDolares / destino.getCotizacion();
+            return new Dinero(montoDestino,destino);
         }
         else{
             return monto;

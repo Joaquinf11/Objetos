@@ -13,37 +13,35 @@ class AppTest {
     @BeforeEach
     void setUp(){
         app=new App();
+        app.agregarMoneda("Dolar",1);
+        app.agregarMoneda("Peso argentino",0.001);
+        app.agregarMoneda("Euro",1.11);
+
+        app.agregarBilletera(100000,"Peso Argentino","Joaquin Falco");
+        app.agregarBilletera(1000,"Dolar","Elias Graciano");
     }
 
     @Test
-    public void agregandoNuevaMonedaEnApp(){
-        Moneda moneda= new Moneda("Peso",1400);
-        ArrayList<Moneda> monedas_esperada= new ArrayList<>();
-        monedas_esperada.add(moneda);
-        app.agregarMoneda(moneda);
-        assertNotEquals(null,app.getMonedas());
-        assertEquals(monedas_esperada,app.getMonedas());
+    public void probandoBuscarMoneda(){
+        Moneda moneda=app.buscarMoneda("Dolar");
+        assertEquals("Dolar",moneda.getNombreMoneda());
     }
 
     @Test
-    public void agregandoNuevaBilleteraEnApp(){
-        Dinero dinero= new Dinero(14000,"euros",1.30);
-        Billetera billetera= new Billetera(dinero,"Joaquin");
-        ArrayList<Billetera> billeteras_esperada= new ArrayList<>();
-        billeteras_esperada.add(billetera);
-        app.agregarBilletera(billetera);
-        assertNotEquals(null,app.getBilleteras());
-        assertEquals(billeteras_esperada,app.getBilleteras());
+    public void probandoBuscarBilletera(){
+        Billetera billetera=app.buscarBilletera("Joaquin Falco");
+        assertEquals("Joaquin Falco",billetera.getNombreUsuario());
     }
 
-    @Test
-    public void convertirDeMonedaOrigenADestino(){
-        Moneda destino= new Moneda("Pesos",1400);
-        Dinero monto= new Dinero(100,"Euro",0.90);
-        Conversor conversor= new Conversor();
-        Dinero resultado= conversor.convertir(monto,destino);
-        assertEquals(155555.5555,resultado.getMonto());
-
-    }
-    
+//    @Test
+//    public void probandoTransferir(){
+//        Billetera origen= app.buscarBilletera("Elias Graciano");
+//        Billetera destino=app.buscarBilletera("Joaquin Falco");
+//        Moneda moneda= app.buscarMoneda("Dolar");
+//        Dinero monto= new Dinero(500,moneda);
+//        app.realizarTransferencia(origen,destino,monto);
+//        assertEquals(500,origen.getSaldo().getMonto());
+//        assertEquals(,destino.getSaldo().getMonto());
+//
+//    }
 }
