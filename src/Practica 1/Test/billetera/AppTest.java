@@ -17,7 +17,7 @@ class AppTest {
         app.agregarMoneda("Peso argentino",0.001);
         app.agregarMoneda("Euro",1.11);
 
-        app.agregarBilletera(100000,"Peso Argentino","Joaquin Falco");
+        app.agregarBilletera(100000,"Peso argentino","Joaquin Falco");
         app.agregarBilletera(1000,"Dolar","Elias Graciano");
     }
 

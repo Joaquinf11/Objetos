@@ -19,8 +19,8 @@ public class Billetera {
 
     public void acreditar(Dinero monto){
         Dinero convertido= Conversor.convertir(monto,this.saldo.getMoneda());
-        double nuevoMonto= convertido.getMonto() + this.saldo.getMonto();
-        this.saldo= new Dinero(nuevoMonto, this.saldo.getMoneda());
+        double nuevoMonto= convertido.getMonto() + getSaldo().getMonto();
+        this.saldo= new Dinero(nuevoMonto, getSaldo().getMoneda());
     }
 
     public boolean desacreditar(Dinero monto){
