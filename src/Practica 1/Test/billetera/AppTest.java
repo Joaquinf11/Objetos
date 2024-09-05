@@ -33,15 +33,13 @@ class AppTest {
         assertEquals("Joaquin Falco",billetera.getNombreUsuario());
     }
 
-//    @Test
-//    public void probandoTransferir(){
-//        Billetera origen= app.buscarBilletera("Elias Graciano");
-//        Billetera destino=app.buscarBilletera("Joaquin Falco");
-//        Moneda moneda= app.buscarMoneda("Dolar");
-//        Dinero monto= new Dinero(500,moneda);
-//        app.realizarTransferencia(origen,destino,monto);
-//        assertEquals(500,origen.getSaldo().getMonto());
-//        assertEquals(,destino.getSaldo().getMonto());
-//
-//    }
+    @Test
+    public void probandoTransferir(){
+        app.realizarTransferencia("Elias Graciano","Joaquin Falco",500,"Dolar");
+        Billetera origen= app.buscarBilletera("Elias Graciano");
+        Billetera destino=app.buscarBilletera("Joaquin Falco");
+        assertEquals(500,origen.getSaldo().getMonto());
+        assertEquals(600000,destino.getSaldo().getMonto());
+
+    }
 }
