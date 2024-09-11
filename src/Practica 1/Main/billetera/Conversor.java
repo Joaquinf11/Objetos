@@ -9,7 +9,7 @@ public class Conversor {
         this.monedaReferencia= new Moneda("Dolar",1);
     }
 
-    public static Dinero convertir(Dinero monto,Moneda destino){
+       public static Dinero convertir(Dinero monto,Moneda destino){
         Moneda origen= monto.getMoneda();
         if (!Objects.equals(origen,destino)){
             double origenEnDolares= monto.getMonto() * origen.getCotizacion()  ;
