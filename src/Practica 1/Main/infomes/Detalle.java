@@ -8,4 +8,16 @@ public class Detalle {
         this.producto=producto;
         this.cantidad=cantidad;
     }
+
+    public Producto getProducto() {
+        return this.producto;
+    }
+
+    public int getCantidad() {
+        return cantidad;
+    }
+
+    public void agregarCantidad(int cantidad){
+        this.cantidad += cantidad;
+    }
 }

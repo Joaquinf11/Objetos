@@ -16,20 +16,45 @@ public class Orden {
         this.detalles= new ArrayList<>();
     }
 
+    public EstadoOrden getEstado() {
+        return estado;
+    }
+
+    public void aceptar(){
+        this.estado=EstadoOrden.ACEPTADA;
+    }
+
+    public void rechazar(){
+        this.estado=EstadoOrden.RECHAZADA;
+    }
+
     public void agregarProducto(Producto producto,int cantidad) {
-        if (hasProducto(producto)) {
+        Detalle detalle= buscarDetalle(producto);
+        if (detalle == null) {
             this.detalles.add(new Detalle(producto, cantidad));
         }
         else {
-            Detalle actual=buscarProducto(producto);
-            actual.agregarCantidad(cantidad);
+            detalle.agregarCantidad(cantidad);
         }
     }
 
-    public boolean hasProducto(Producto producto){
+    //lo use para agregar producto pero creo que no es necesario lo dejo por las du
+//    public boolean hasProducto(Producto producto){
+//        for (Detalle detalle : detalles){
+//            if(detalle.getProducto().getNombre().equals(producto.getNombre())){
+//                return true;
+//            }
+//        }
+//        return false;
+//    }
+
+    public Detalle buscarDetalle(Producto producto){
         for (Detalle detalle : detalles){
-            if(Objects.equales(detalle.getProducto()))
+            if(detalle.getProducto().getNombre().equals(producto.getNombre())){
+                return detalle;
+            }
         }
+        return null;
     }
 
 }
