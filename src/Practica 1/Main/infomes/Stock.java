@@ -15,11 +15,11 @@ public class Stock {
     }
 
     public void agregarStock(Producto producto, int cantidad){
-        if(this.stock.containsKey(producto)){ //esta condicion creo que no hace falta porque sino agrega solo la cantidad y si el producto no esta tengo que hacer lo mismo
-            this.stock.put(
-                    producto,
-                    this.stock.get(producto) + cantidad
-            );
+        if(this.stock.containsKey(producto)) {
+            this.stock.put(producto, this.stock.get(producto) + cantidad);
+        }
+        else{
+            this.stock.put(producto,cantidad);
         }
     }
 
@@ -30,5 +30,6 @@ public class Stock {
                     this.stock.get(producto) - cantidad
             );
         }
+        //aca creo que prodia haber un trowhs ExceptioN porque si no esta en el stock no lo puedo descontar pero como lo manejo?
     }
 }

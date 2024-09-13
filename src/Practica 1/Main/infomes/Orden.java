@@ -16,8 +16,12 @@ public class Orden {
         this.detalles= new ArrayList<>();
     }
 
+    public ArrayList<Detalle> getDetalles(){
+        return  this.detalles;
+    }
+
     public EstadoOrden getEstado() {
-        return estado;
+        return this.estado;
     }
 
     public void aceptar(){
@@ -56,5 +60,6 @@ public class Orden {
         }
         return null;
     }
+
 
 }
