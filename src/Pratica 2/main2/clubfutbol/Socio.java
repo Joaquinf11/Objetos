@@ -4,14 +4,21 @@ public class Socio {
     private  String nombreSocio;
     private  String mail;
     private String direccion;
-    private Suscripcion suscripcion;
+    private Credencial credencial;
 
-    public Socio(String nombreSocio, String mail, String direccion, String tipoSuscripcion) {
+    public Socio(String nombreSocio, String mail, String direccion, TipoSuscripcion tipoSuscripcion) {
         this.nombreSocio = nombreSocio;
         this.mail = mail;
         this.direccion = direccion;
-        this.suscripcion= new Suscripcion(tipoSuscripcion);
+        this.credencial= new Credencial(tipoSuscripcion);
     }
 
 
+    public String getNombre() {
+        return this.nombreSocio;
+    }
+
+    public Credencial getCredencial(){
+        return this.credencial;
+    }
 }
