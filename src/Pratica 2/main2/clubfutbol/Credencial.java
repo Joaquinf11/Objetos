@@ -6,14 +6,15 @@ public class Credencial {
     private TipoSuscripcion suscripcion;
     private ArrayList<Actividad> actividades;
 
-    public Credencial(TipoSuscripcion suscripcion) {
-        this.suscripcion = suscripcion;
+    public Credencial(String suscripcion) {
+        this.suscripcion= TipoSuscripcion.toTipoSuscripcion(suscripcion);
         this.actividades= new ArrayList<>();
     }
 
     public TipoSuscripcion getSuscripcion(){
         return this.suscripcion;
     }
+
 
     public void agregarActividad(Actividad actividad){
         this.actividades.add(actividad);

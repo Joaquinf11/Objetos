@@ -19,7 +19,7 @@ public class Club {
         this.actividades= new ArrayList<Actividad>();
     }
 
-    public void cargarSocio(String nombreSocio,String mail, String direccion,TipoSuscripcion tipoSuscripcion){
+    public void cargarSocio(String nombreSocio,String mail, String direccion,String tipoSuscripcion){
         this.socios.add(new Socio(nombreSocio,mail,direccion,tipoSuscripcion));
     }
 

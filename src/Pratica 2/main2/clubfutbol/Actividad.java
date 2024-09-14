@@ -6,9 +6,9 @@ public class Actividad {
     private String nombre;
     private TipoSuscripcion nivelMinimo;
 
-    public Actividad(String nombre, TipoSuscripcion nivelMinimo) {
+    public Actividad(String nombre, String nivelMinimo) {
         this.nombre = nombre;
-        this.nivelMinimo = nivelMinimo;
+        this.nivelMinimo= TipoSuscripcion.toTipoSuscripcion(nivelMinimo);
     }
 
     public TipoSuscripcion getNivelMinimo(){
@@ -18,4 +18,6 @@ public class Actividad {
     public String getNombre(){
         return this.nombre;
     }
+
+
 }
