@@ -31,7 +31,7 @@ public class Club {
         Socio socio = buscarSocio(nombreSocio);
         Credencial credencial = socio.getCredencial();
         for (Actividad actividad : actividades) {
-            if (credencial.getSuscripcion().compareTo(actividad.getNivelMinimo()) <= 0 ){
+            if (credencial.getSuscripcion().compareTo(actividad.getNivelMinimo()) >= 0 ){
                 credencial.agregarActividad(actividad);
             }
 
@@ -42,6 +42,15 @@ public class Club {
         for (Socio socio : socios){
             if (Objects.equals(socio.getNombre(),nombreSocio)){
                 return socio;
+            }
+        }
+        return null;
+    }
+
+    public Actividad buscarActividad(String nombre){
+        for (Actividad actividad : actividades){
+            if (actividad.getNombre().equals(nombre)){
+                return actividad;
             }
         }
         return null;

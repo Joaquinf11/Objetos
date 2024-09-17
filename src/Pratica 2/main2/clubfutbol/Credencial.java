@@ -21,4 +21,13 @@ public class Credencial {
     }
 
 
+    public Actividad getActividad(String nombre){
+        for (Actividad actividad : actividades){
+            if (actividad.getNombre().equals(nombre)){
+                return actividad;
+            }
+        }
+        return null;
+    }
+
 }
