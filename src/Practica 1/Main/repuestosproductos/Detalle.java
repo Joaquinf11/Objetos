@@ -1,4 +1,4 @@
-package infomes;
+package repuestosproductos;
 
 public class Detalle {
     private Producto producto;
