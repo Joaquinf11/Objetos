@@ -62,4 +62,10 @@ class ClubTest {
 
 
     }
+
+    @Test
+    public void pobrandoLosInformes(){
+        club.informeActividadesPorSuscripcion();
+        club.informeSociosPorSuscripcion();
+    }
 }
