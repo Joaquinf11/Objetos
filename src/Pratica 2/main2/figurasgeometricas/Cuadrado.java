@@ -1,14 +1,13 @@
 package figurasgeometricas;
 
-public class Cuadrado extends DosDimensiones{
+public class Cuadrado extends Figura{
     private double lado;
 
-    public Cuadrado(String nombre,double lado) {
-        super(nombre);
+    public Cuadrado(double lado) {
         this.lado=lado;
-        setArea(this.calcularArea());
     }
 
+    @Override
     public double calcularArea(){
         return this.lado * this.lado;
     }

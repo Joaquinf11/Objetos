@@ -2,18 +2,14 @@ package figurasgeometricas;
 
 public class Figura {
     private double area;
-    private String nombre;
 
-    public Figura(String nombre){
-        this.nombre=nombre;
+    public double calcularArea(){
+        return -1;
     }
 
-    public String getNombre() {
-        return nombre;
-    }
 
     public double getArea() {
-        return area;
+        return this.area;
     }
 
     public void setArea(double area){
