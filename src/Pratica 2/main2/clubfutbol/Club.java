@@ -107,13 +107,13 @@ public class Club {
         }
         out.println();
         resultado= getSociosPorSucripcion(TipoSuscripcion.INTERMEDIA);
-        out.println("Socios con suscripcion Intermedia: ");
+        out.print("Socios con suscripcion Intermedia: ");
         for (Socio mostrar : resultado ){
             out.print(mostrar.getNombre() + "\t");
         }
         out.println();
         resultado= getSociosPorSucripcion(TipoSuscripcion.DESTACADA);
-        out.println("Socios con suscripcion destaca: ");
+        out.print("Socios con suscripcion destacada: ");
         for (Socio mostrar : resultado ){
             out.print(mostrar.getNombre() + "\t");
         }
