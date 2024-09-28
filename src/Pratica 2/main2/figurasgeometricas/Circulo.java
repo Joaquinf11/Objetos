@@ -13,7 +13,7 @@ public class Circulo extends DosDimensiones{
     }
 
     public double calcularArea(){
-        return PI* (pow(radio,2));
+        return PI * (pow(radio,2));
     }
 
 
