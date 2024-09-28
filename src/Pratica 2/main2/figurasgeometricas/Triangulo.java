@@ -1,17 +1,15 @@
 package figurasgeometricas;
 
-public class Triangulo extends DosDimensiones{
+public class Triangulo extends Figura{
     private double base;
     private double altura;
 
-    public Triangulo(String nombre,double base, double altura){
-        super(nombre);
+    public Triangulo(double base, double altura){
         this.base=base;
         this.altura=altura;
-        setArea(this.calcularArea());
-
     }
 
+    @Override
     public double calcularArea(){
         return (base * altura) / 2;
     }

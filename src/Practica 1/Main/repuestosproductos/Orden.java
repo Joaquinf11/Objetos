@@ -1,4 +1,4 @@
-package infomes;
+package repuestosproductos;
 
 import java.time.LocalDate;
 import java.util.ArrayList;

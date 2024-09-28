@@ -1,4 +1,4 @@
-package infomes;
+package repuestosproductos;
 
 import java.util.Objects;
 

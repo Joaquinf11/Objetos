@@ -1,14 +1,14 @@
-package infomes;
+package repuestosproductos;
 
 import java.util.ArrayList;
 
 public class Ventas {
     private ArrayList <Orden> ordenes;
-    private Stock stock;
+    private Stock productos;
 
     public Ventas() {
         this.ordenes= new ArrayList<>();
-        this.stock= new Stock();
+        this.productos= new Stock();
     }
 
     public void agregarOrden (int numeroOrden){
@@ -19,7 +19,7 @@ public class Ventas {
         for (Orden orden : ordenes){
             if(orden.getEstado()== EstadoOrden.SIN_PROCESAR){
                 for (Detalle detalle : orden.getDetalles()){
-                    if (this.stock.hayDisponible(detalle.getProducto(),detalle.getCantidad())){
+                    if (this.productos.hayDisponible(detalle.getProducto(),detalle.getCantidad())){
                         mantenerStock(detalle.getProducto(),detalle.getCantidad());
                     }
                     else {
@@ -51,13 +51,19 @@ public class Ventas {
         return contador;
     }
 
-    public void altaStock(Producto producto,int cantidad){
-        this.stock.agregarStock(producto,cantidad);
+    public void altaStock(String nombre,int cantidad){
+        Producto producto= new Producto(nombre);
+        this.productos.agregarStock(producto,cantidad);
     }
 
     public void mantenerStock(Producto producto,int cantidad){
-        this.stock.descontarStock(producto,cantidad);
+        this.productos.descontarStock(producto,cantidad);
     }
+
+   public Producto buscarProductoEnStock(String nombre){
+
+   }
+
 
     public void generarInforme(){
         int aceptadas= ordenesAceptadas();

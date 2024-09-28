@@ -59,7 +59,7 @@ public class Club {
     public ArrayList<Actividad> getactividadesPorSucripcion(TipoSuscripcion suscripcion){
         ArrayList<Actividad> resultado= new ArrayList<>();
         for(Actividad actividad : actividades){
-          if (actividad.getNivelMinimo().compareTo(suscripcion) == 0){
+          if (actividad.getNivelMinimo().compareTo(suscripcion) <= 0){
               resultado.add(actividad);
           }
 
@@ -78,4 +78,45 @@ public class Club {
     }
 
 
+    public void informeActividadesPorSuscripcion(){
+        ArrayList<Actividad> resultado= getactividadesPorSucripcion(TipoSuscripcion.BASICA);
+        out.println("Actividades permitidias para la suscripcion basica: ");
+        for (Actividad mostrar : resultado ){
+            out.print(mostrar.getNombre() + "\t");
+        }
+        out.println();
+        resultado= getactividadesPorSucripcion(TipoSuscripcion.INTERMEDIA);
+        out.println("Actividades permitidias para la suscripcion Intermedia: ");
+        for (Actividad mostrar : resultado ){
+            out.print(mostrar.getNombre() + "\t");
+        }
+        out.println();
+        resultado= getactividadesPorSucripcion(TipoSuscripcion.DESTACADA);
+        out.println("Actividades permitidias para la suscripcion destaca: ");
+        for (Actividad mostrar : resultado ){
+            out.print(mostrar.getNombre() + "\t");
+        }
+        out.println();
+    }
+
+    public void informeSociosPorSuscripcion(){
+        ArrayList<Socio> resultado= getSociosPorSucripcion(TipoSuscripcion.BASICA);
+        out.print("Socios con suscripcion basica: ");
+        for (Socio mostrar : resultado ){
+            out.print(mostrar.getNombre() + "\t");
+        }
+        out.println();
+        resultado= getSociosPorSucripcion(TipoSuscripcion.INTERMEDIA);
+        out.print("Socios con suscripcion Intermedia: ");
+        for (Socio mostrar : resultado ){
+            out.print(mostrar.getNombre() + "\t");
+        }
+        out.println();
+        resultado= getSociosPorSucripcion(TipoSuscripcion.DESTACADA);
+        out.print("Socios con suscripcion destacada: ");
+        for (Socio mostrar : resultado ){
+            out.print(mostrar.getNombre() + "\t");
+        }
+        out.println();
+    }
 }

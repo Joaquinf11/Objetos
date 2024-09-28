@@ -2,16 +2,15 @@ package figurasgeometricas;
 
 import static java.lang.Math.pow;
 
-public class Circulo extends DosDimensiones{
+public class Circulo extends Figura{
     private double radio;
     private final double PI= 3.14;
 
-    public Circulo(String nombre,double radio){
-        super(nombre);
+    public Circulo(double radio){
         this.radio=radio;
-        setArea(this.calcularArea());
     }
 
+    @Override
     public double calcularArea(){
         return PI * (pow(radio,2));
     }

@@ -1,16 +1,15 @@
 package figurasgeometricas;
 
-public class Rectangulo extends DosDimensiones{
+public class Rectangulo extends Figura{
     private double base;
     private double altura;
 
-    public Rectangulo(String nombre,double base,double altura) {
-        super(nombre);
+    public Rectangulo(double base,double altura) {
         this.base=base;
         this.altura=altura;
-        setArea(this.calcularArea());
     }
 
+    @Override
     public double calcularArea(){
         return this.base * this.altura;
     }

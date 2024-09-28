@@ -3,9 +3,7 @@ package figurasgeometricas;
 public class TresDimensiones extends Figura{
     private double volumen;
 
-    public TresDimensiones(String nombre){
-        super(nombre);
-    }
+
 
     public double getVolumen() {
         return this.volumen;
@@ -13,5 +11,9 @@ public class TresDimensiones extends Figura{
 
     public void setVolumen(double volumen) {
         this.volumen = volumen;
+    }
+
+    public double calcularVolumen(){
+        return  -1;
     }
 }
