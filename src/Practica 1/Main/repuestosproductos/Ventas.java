@@ -60,9 +60,7 @@ public class Ventas {
         this.productos.descontarStock(producto,cantidad);
     }
 
-   public Producto buscarProductoEnStock(String nombre){
 
-   }
 
 
     public void generarInforme(){
