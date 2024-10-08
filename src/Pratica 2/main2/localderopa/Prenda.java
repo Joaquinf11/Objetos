@@ -1,6 +1,6 @@
 package localderopa;
 
-public class Prenda {
+public class Prenda implements Vendible {
     private double precioLista;
     private int porcentajeGanancia;
 
@@ -21,7 +21,7 @@ public class Prenda {
         return this.precioLista;
     }
 
-    public  double calcularPrecioVenta( ){
+    public  double calcularPrecio( ){
         return this.precioLista + ( this.precioLista/100) * this.porcentajeGanancia;
     }
 

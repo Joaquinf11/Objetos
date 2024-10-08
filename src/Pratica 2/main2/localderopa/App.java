@@ -4,24 +4,25 @@ import java.util.ArrayList;
 import java.util.Objects;
 
 public class App {
-    public ArrayList<MediosDePago> mediosDePagos;
+    public ArrayList<MedioDePago> medioDePagos;
     public ArrayList<Prenda> prendas;
+    public ArrayList<Conjunto> conjuntos;
 
     public App() {
-        this.mediosDePagos = new ArrayList<>();
+        this.medioDePagos = new ArrayList<>();
         this.prendas = new ArrayList<>();
     }
 
-    public void agregarMedioDePago(MediosDePago medio){
-        this.mediosDePagos.add(medio);
+    public void agregarMedioDePago(MedioDePago medio){
+        this.medioDePagos.add(medio);
     }
 
     public void agregarPrenda(Prenda prenda){
         this.prendas.add(prenda);
     }
 
-    public MediosDePago buscarMedioDePago(MediosDePago medio){
-        for( MediosDePago resultado : mediosDePagos){
+    public MedioDePago buscarMedioDePago(MedioDePago medio){
+        for( MedioDePago resultado : medioDePagos){
             if(Objects.equals(medio,resultado)) {
                 return resultado;
             }
@@ -38,7 +39,7 @@ public class App {
         return null;
     }
 
-    public double precioPrendaConMedioDePago(Prenda prenda,MediosDePago medio){
-        return  medio.calcularPrecioFinal(prenda.calcularPrecioVenta());
+    public double precioPrendaConMedioDePago(Prenda prenda, MedioDePago medio){
+        return  medio.calcularPrecioFinal(prenda.calcularPrecio());
     }
 }
