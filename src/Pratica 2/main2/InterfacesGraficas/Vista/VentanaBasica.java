@@ -50,7 +50,7 @@ public class VentanaBasica {
         panelPrincipal.setLayout(new BorderLayout()); // solo para este hay que agregar los botones despues para definir donde van
         panelPrincipal.add(etiqueta,BorderLayout.NORTH);
         panelPrincipal.add(borde,BorderLayout.WEST);
-        panelPrincipal.add(botonCentral, BorderLayout.CENTER);
+        panelPrincipal.add(new Centro(this), BorderLayout.CENTER);
         panelPrincipal.add(estado,BorderLayout.SOUTH);
 
         JMenuBar menuBar= new JMenuBar();
@@ -66,7 +66,7 @@ public class VentanaBasica {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Salinedo desde el menu");
-                System.exit(0);
+                salirDeLaApp();
             }
         });
 
@@ -74,17 +74,23 @@ public class VentanaBasica {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.out.println("Salinedo desde el boton");
-                System.exit(0);
+                salirDeLaApp();
             }
         });
 
         frame.addWindowListener(new WindowAdapter() {
             @Override
             public void windowClosing(WindowEvent e) {
-                System.exit(0);
+                salirDeLaApp();
             }
         });
 
         frame.setVisible(true);
+
+
+    }
+
+    public void salirDeLaApp(){
+        System.exit(0);
     }
 }
