@@ -43,12 +43,20 @@ public class VentanaBasica {
         borde.add(panelMenu);
         // frame.setLayout(new FlowLayout());
         //frame.setLayout(new GridLayout());
-        frame.setLayout(new BorderLayout()); // solo para este hay que agregar los botones despues para definir donde van
+        panelPrincipal.setLayout(new BorderLayout()); // solo para este hay que agregar los botones despues para definir donde van
         panelPrincipal.add(etiqueta,BorderLayout.NORTH);
         panelPrincipal.add(borde,BorderLayout.WEST);
         panelPrincipal.add(botonCentral, BorderLayout.CENTER);
         panelPrincipal.add(estado,BorderLayout.SOUTH);
 
+        JMenuBar menuBar= new JMenuBar();
+        frame.setJMenuBar(menuBar);
+        JMenu archivo= new JMenu("Archivo");
+        JMenu ver= new JMenu("Ver");
+        JMenuItem salir = new JMenuItem("salir");
+        archivo.add(salir);
+        menuBar.add(archivo);
+        menuBar.add(ver);
 
         frame.setVisible(true);
     }
