@@ -1,6 +1,7 @@
 package InterfacesGraficas.Vista;
 
 import javax.swing.*;
+import javax.swing.border.Border;
 import java.awt.*;
 
 public class VentanaBasica {
@@ -15,10 +16,13 @@ public class VentanaBasica {
         Container panelPrincipal= frame.getContentPane(); //panel contenedero de la ventana
 
         JLabel etiqueta= new JLabel("Hola Mundo desde Swing");
-        JButton boton1= new JButton("Boton 1");
-        JButton boton2= new JButton("Boton 2");
-        JButton boton3= new JButton("Boton 3");
-        JButton boton4= new JButton("Boton 4");
+        JButton boton1= new JButton("Agregar");
+        JButton boton2= new JButton("Borrar");
+        JButton boton3= new JButton("Modificar");
+        JButton boton4= new JButton("Salir");
+        JButton botonCentral= new JButton("CENTRO");
+        JLabel estado= new JLabel("Aca esta el estado de la aplicacion");
+
 
 //        panelPrincipal.add(etiqueta);
 //        panelPrincipal.add(boton1);
@@ -29,14 +33,22 @@ public class VentanaBasica {
       //  frame.pack(); // se acomoda al contenido que tiene adentro
         frame.setBounds(100,100,400,400); //le doy el tamaño a la ventana de un rectangulo
 
+
+        JPanel borde = new JPanel(new FlowLayout());
+        JPanel panelMenu = new JPanel(new GridLayout(4,1));
+        panelMenu.add(boton1,0,0);
+        panelMenu.add(boton2,1,0);
+        panelMenu.add(boton3,2,0);
+        panelMenu.add(boton4,3,0);
+        borde.add(panelMenu);
         // frame.setLayout(new FlowLayout());
         //frame.setLayout(new GridLayout());
         frame.setLayout(new BorderLayout()); // solo para este hay que agregar los botones despues para definir donde van
         panelPrincipal.add(etiqueta,BorderLayout.NORTH);
-        panelPrincipal.add(boton1,BorderLayout.WEST);
-        panelPrincipal.add(boton2,BorderLayout.CENTER);
-        panelPrincipal.add(boton3,BorderLayout.SOUTH);
-        panelPrincipal.add(boton4,BorderLayout.EAST);
+        panelPrincipal.add(borde,BorderLayout.WEST);
+        panelPrincipal.add(botonCentral, BorderLayout.CENTER);
+        panelPrincipal.add(estado,BorderLayout.SOUTH);
+
 
         frame.setVisible(true);
     }
