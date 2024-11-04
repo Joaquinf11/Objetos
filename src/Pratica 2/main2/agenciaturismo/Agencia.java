@@ -19,9 +19,9 @@ public class Agencia {
         this.clientes.add(new Cliente(nombre));
     }
 
-    public void agregarProveedor(String nombre, TipoProveedor tipo,String pais,String excursion){
-        this.proveedores.add(new Proveedor(nombre,tipo,pais,excursion));
-    }
+//    public void agregarProveedor(String nombre, TipoProveedor tipo,String pais,String excursion){
+//        this.proveedores.add(new Proveedor(nombre,tipo,pais,excursion));
+//    }
 
     public void  agregarPaquetes(String destino, Proveedor transporte, Proveedor hospedaje){
         this.paquetes.add(new Paquete(destino,transporte,hospedaje));

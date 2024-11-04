@@ -1,6 +1,6 @@
 package agenciaturismo;
 
-public class Proveedor {
+public abstract class Proveedor {
     private String nombre;
     private TipoProveedor tipo;
     private String pais;
@@ -14,5 +14,9 @@ public class Proveedor {
             this.excursion=excursion;
         }
     }
+
+
+
+
 
 }
