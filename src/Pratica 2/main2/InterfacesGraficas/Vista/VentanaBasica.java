@@ -3,6 +3,10 @@ package InterfacesGraficas.Vista;
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 public class VentanaBasica {
     private JFrame frame;
@@ -57,6 +61,29 @@ public class VentanaBasica {
         archivo.add(salir);
         menuBar.add(archivo);
         menuBar.add(ver);
+
+        salir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Salinedo desde el menu");
+                System.exit(0);
+            }
+        });
+
+        boton4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Salinedo desde el boton");
+                System.exit(0);
+            }
+        });
+
+        frame.addWindowListener(new WindowAdapter() {
+            @Override
+            public void windowClosing(WindowEvent e) {
+                System.exit(0);
+            }
+        });
 
         frame.setVisible(true);
     }
